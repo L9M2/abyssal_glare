@@ -1,0 +1,23 @@
+--Alright. I need to keep track of what all the pillars are and what they actually mean. I need to keep this somewhat organized...
+--The names will for the GRAPHIC of the sprite of that achievement, Flag names will be in parenthesis.
+
+---Completions Pillar - For certain accomplishments or quests. Typically ending the game while under certain criteria. Ending as in through death or winning.
+
+--playerclone() - For successfully completing the game with this perk active.
+--silverdollar() - Completing the Work with the Silver Dollar Healing perk.
+--silverdollar_top_b() - Completing the Work at the mountain altar with this perk and 11 orbs.
+--silverdollar_top() - Completing the work at the mountain altar without the required orbs.
+--death() - Achieved by ####### with the ########## perk.
+--nightmare() - For completing the game on Nightmare mode.
+--apotheosis() - For ascending during the Apotheosis related quest.
+
+---Accomplishments Pillar - For spell specific unlocks or certain things that are 'unlocked'. Though not completing the run. Death/Winning related wont be included.
+
+---Middle Pillar - Kills and Sacrifice Specific.
+
+---Secrets Pillar - For things that aren't really in any category just extra things the player found in the world. Either finding an item. Collecting a McGuffin. Or just doing something.
+--fatecard() - Using 3 different fate cards in a single run.
+
+
+---SHADOW ACHIEVEMENT PILLAR (Extra Secret Pillar)- These are either mod compatibility related (Such as doing something while having another mod active), or 'near impossible' to obtain, or joke related. These are not meant to be regular achievements but can be for bragging rights. If you are meant to 100% the mod, I wouldn't consider this as apart of it unless you really want to.
+--kolmikarmicrain() - For (somehow) bringing kolmi to the Moon while under the Karmic Rain perk.

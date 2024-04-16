@@ -1,0 +1,14 @@
+<Entity name="unknown">
+	<LifetimeComponent
+		lifetime="90" >
+	</LifetimeComponent>
+
+
+<AudioComponent
+		file="mods/abyssal_glare/files/audio/audio_abyssal_glare.bank"
+      	event_root="fate_cards/fate_card_generic"
+		set_latest_event_position="1" >
+</AudioComponent>
+</Entity>
+<!--You can leave out /create at the end of the event root since that is called upon creation of this entity in the world.-->
+<!--This is a legacy entity that is not actually needed anymore and was just too lazy to remove it, but it's technically a way to add a sound entity.-->

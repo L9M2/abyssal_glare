@@ -1,0 +1,35 @@
+<Mod
+	name="The Abyssal Glares"
+	description="Adds several things of content into the game. Spells, Materials, and a couple new locations.\n>ERROR CODE 9F - MALFORMED BYTE\n>RESOLVING BYTES...\nA lesser god has found an entry point to this world - they rather have you co9e 9o it 9no9le9ge9is99ey.99\n>END OF STRING - MALFORMED BYTE 0X9F"
+	tags="spells,gameplay,creatures,alchemy,biomes"
+	request_no_api_restrictions="0" 
+	is_game_mode="0"
+    dont_upload_folders="FOLDER_TO_IGNORE1|FOLDER_TO_IGNORE2"
+    dont_upload_files="FILE_TO_IGNORE1|FILE_TO_IGNORE2"
+> 
+</Mod>
+
+ <!--
+ 	April 1 2021 - a mod declared as game mode (is_game_mode="1") can enable support for multiple save slots via game_mode_supports_save_slots="1"
+	
+	L9M2: Yeah, but it breaks with NG+ if you load a NG+ world first after bootup, it overwrite the save slot you selected with the NG+ slot. Kinda glitchy. I think Conjurer mentions that bug, but that's not what this mod does anyway.
+ -->
+<!-- 
+	If a mod requires access to the full lua api e.g. os.* io.* it has to request acesss via 'request_no_api_restrictions="1"'.
+	It is recommended that other options are explored first, as we may completely disable those APIs in the future.
+	By default mods have access to the table, string, math and bit libraries and to the APIs exposed by the game.
+	
+	Make noita play bad apple????
+ -->
+<!-- 
+
+SPECIAL THANKS:
+ congalyne from the Noita Discord. Seriously. You have saved the portal from giving me a headache.
+ I can't thank you enough for trying to the fix the portal logic.
+ "Don't thank me. Thank the programmer socks" -Conga Lyne
+ 
+ dextercd and nathanskimscam (Nathan) , I also thank you both as well for trying your best and trying to debug it as well.
+ You two seriously need some thanks too for trying to guide me along the way.
+ 
+ And the Noita Wiki (the noita.gg one, not the cringy fandom one) since they provide stuff the xml library.
+ -->

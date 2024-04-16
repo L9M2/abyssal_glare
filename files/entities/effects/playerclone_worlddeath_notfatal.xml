@@ -1,0 +1,27 @@
+<Entity>
+	<InheritTransformComponent>
+    </InheritTransformComponent>
+	
+    <MagicConvertMaterialComponent
+      kill_when_finished="0"
+      from_any_material="1"
+      steps_per_frame="3"
+      to_material="abyssal_glare_dense_abyssal_crystal"
+      clean_stains="0"
+      is_circle="1"
+      radius="300" 
+      convert_same_material="0"
+	  >
+    </MagicConvertMaterialComponent>
+	
+	<LifetimeComponent
+		lifetime="120"
+		>
+	</LifetimeComponent>
+	<LuaComponent 
+        execute_every_n_frame="119"
+        remove_after_executed="1"
+        script_source_file="mods/abyssal_glare/files/script/entities/playerclone_worlddeath_convert.lua" 
+	>
+    </LuaComponent>
+</Entity>

@@ -1,0 +1,9 @@
+{
+    "Lua.diagnostics.globals": [
+        "spawn_fate_card",
+        "GamePrintImportant"
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global"
+    ]
+}

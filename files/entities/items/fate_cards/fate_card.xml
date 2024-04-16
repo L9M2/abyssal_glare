@@ -1,0 +1,68 @@
+<!--
+This is the base card. While it's called fate_card. The actual name will be whatever.
+-->
+<Entity 
+	name="abyssal_glare_unknown_fate_card"
+	tags="drillable,teleportable_NOT,item_pickup">
+	
+	<VelocityComponent>
+	</VelocityComponent>
+
+	<SimplePhysicsComponent>
+	</SimplePhysicsComponent>
+	
+	<UIInfoComponent
+		name="$abyssal_glare_item_fc"
+		>
+	</UIInfoComponent>
+
+	<HitboxComponent 
+		_tags="enabled_in_world"
+		aabb_min_x="-6" 
+		aabb_max_x="6" 
+		aabb_min_y="-8" 
+		aabb_max_y="0" 
+		is_enemy="0" 
+		is_item="1" 
+		is_player="0" >
+	</HitboxComponent>
+
+    <VariableStorageComponent
+        name="is_gold"
+        value_bool="0"
+    >
+    </VariableStorageComponent>
+	<ItemComponent
+		item_name="$abyssal_glare_item_fc"
+		play_spinning_animation="0"
+   		play_pick_sound="0"
+   		stats_count_as_item_pick_up="0"
+		auto_pickup="0" >
+	</ItemComponent>
+
+	<LuaComponent 
+		script_item_picked_up="mods/abyssal_glare/files/script/entities/items/fate_card.lua" >
+	</LuaComponent>
+
+	<LightComponent 
+		_tags="enabled_in_world"
+		_enabled="1" 
+		r="128"
+		g="255"
+		b="128"
+		radius="64"
+		fade_out_time="0.75" >
+	</LightComponent>
+
+	<SpriteComponent 
+		_tags="enabled_in_world,character" 
+		alpha="1" 
+		image_file="mods/abyssal_glare/files/items_gfx/fate_cards/unknown.png" 
+		next_rect_animation="" 
+		rect_animation="" 
+		offset_x="10"
+		offset_y="14"
+		z_index="20" >
+	</SpriteComponent>
+
+</Entity>

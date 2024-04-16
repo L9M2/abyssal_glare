@@ -1,0 +1,11 @@
+<Entity>
+
+	<InheritTransformComponent />
+
+	<GameEffectComponent 
+		effect="CUSTOM"
+		custom_effect_id="ABYSSAL_GLARE_HORRIBLE_FATE"
+		frames="-1">
+	</GameEffectComponent>	
+
+</Entity>

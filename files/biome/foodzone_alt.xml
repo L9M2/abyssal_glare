@@ -1,0 +1,188 @@
+<Biome>
+  <Topology 
+    name="$biome_abyssal_glare_foodzone_alt" 
+    type="BIOME_PROCEDURAL"
+    wang_template_file="mods/abyssal_glare/files/wang_tiles/food_biome.png" 
+    background_image="mods/abyssal_glare/files/biome_gfx/abyssal_biome_foodzone_wall.png"
+    background_use_neighbor="0"
+    noise_biome_edges="1"
+    lua_script="data/scripts/biomes/hills.lua"
+    mExtraPerlinScaleX="0.05" 
+    mExtraPerlinScaleY="0.0342857" 
+    mGradientAddNoise="1" 
+    mGradientEndY="10240" 
+    mGradientHighNoise="20.057" 
+    mGradientLowNoise="-20.571" 
+    mGradientMaxY="10.0" 
+    mGradientMinY="-10.0" 
+    mGradientNoiseScale="0.00128571" 
+    mGradientSinMultipleMax="1.0" 
+    mGradientSinMultipleMin="0.021" 
+    mGradientStartY="-10240" 
+    mGradientType="1" 
+    mInsidePerlinClamped="0" 
+    mInsidePerlinScaleMax="4" 
+    mInsidePerlinScaleMin="-3.5" 
+    mInsidePerlinScaleX="0.1" 
+    mInsidePerlinScaleY="0.1" 
+    mInsidePerlinScaled="1" 
+    mInsidePerlinSquared="1" 
+    mMultiplierExtraPerlin="0.06" 
+    mMultiplierGradient="0.01" 
+    mMultiplierPerlin="4.9" 
+    mPerlinScale_x="0.1" 
+    mPerlinScale_y="0.1" 
+    mWaterLevel="1000"
+    limit_background_image="0"
+    fat_biome_edges="0"
+    has_rain="0"
+     >
+
+  </Topology>
+
+  <!------------ MATERIALS -------------------->
+
+  <Materials 
+    name="solid_wall" 
+     >
+
+    <MaterialComponent 
+      _enabled="1" 
+      is_rare="0" 
+      limit_max_y="2048" 
+      limit_min_y="-4096" 
+      limit_y="0" 
+      material_index="9" 
+      material_max="1.5" 
+      material_min="-0.25" 
+      material_name="cheese_static" 
+      rare_polka_is_boxed="1" 
+      rare_polka_probability="0.2" 
+      rare_polka_radius_high="0.65" 
+      rare_polka_radius_low="0.2" 
+      rare_required_max="10" 
+      rare_required_min="0.2" 
+      rare_scale_x="0.05" 
+      rare_scale_y="0.05" 
+      rare_use_perlin="1" 
+      rare_use_polka="1" >
+    </MaterialComponent>
+	
+	
+    <MaterialComponent 
+      _enabled="1" 
+      is_rare="0" 
+      limit_max_y="2048" 
+      limit_min_y="-4096" 
+      limit_y="0" 
+      material_index="10" 
+      material_max="2.2" 
+      material_min="1.0" 
+      material_name="abyssal_glare_bread_static" 
+      add_perlin="1"
+      add_perlin_scale_y="0.0001"
+      add_perlin_scale_x="0.003"
+      rare_polka_is_boxed="1" 
+      rare_polka_probability="1.9" 
+      rare_polka_radius_high="10.95" 
+      rare_polka_radius_low="5.1" 
+      rare_required_max="1" 
+      rare_required_min="0.1" 
+      rare_scale_x="0.00075" 
+      rare_scale_y="0.0009" 
+      rare_use_perlin="1" 
+      rare_use_polka="1" 
+	  rare_offset_by_seed="1"
+	  rare_offset_x="-9"
+	  rare_offset_y="99"
+	  >
+    </MaterialComponent>
+	
+    <MaterialComponent 
+      _enabled="1" 
+      is_rare="0" 
+      limit_max_y="2048" 
+      limit_min_y="-4096" 
+      limit_y="0" 
+      material_index="10" 
+      material_max="7.2" 
+      material_min="4.6" 
+      material_name="abyssal_glare_bread_static" 
+      add_perlin="1"
+      add_perlin_scale_y="0.0001"
+      add_perlin_scale_x="0.003"
+      rare_polka_is_boxed="1" 
+      rare_polka_probability="1.8" 
+      rare_polka_radius_high="10.95" 
+      rare_polka_radius_low="5.1" 
+      rare_required_max="1" 
+      rare_required_min="0.1" 
+      rare_scale_x="0.0005" 
+      rare_scale_y="0.0005" 
+      rare_use_perlin="1" 
+      rare_use_polka="1" 
+	  rare_offset_by_seed="1"
+	  rare_offset_x="-9"
+	  rare_offset_y="99"
+	  >
+    </MaterialComponent>
+	
+	<!--This is give the holes an accent.-->
+	<MaterialComponent 
+      _enabled="1" 
+      is_rare="0" 
+      limit_max_y="2048" 
+      limit_min_y="-4096" 
+      limit_y="0" 
+      material_index="11" 
+      material_max="5.0" 
+      material_min="1.0" 
+      material_name="abyssal_glare_meat_static" 
+      add_perlin="1"
+      add_perlin_scale_y="0.01"
+      add_perlin_scale_x="0.01"
+      rare_polka_is_boxed="1" 
+      rare_polka_probability="0.2" 
+      rare_polka_radius_high="0.995" 
+      rare_polka_radius_low="0.1" 
+      rare_required_max="10" 
+      rare_required_min="0.2" 
+      rare_scale_x="0.005" 
+      rare_scale_y="0.005" 
+      rare_use_perlin="1" 
+      rare_use_polka="1" >
+    </MaterialComponent>
+	
+	
+	
+	
+	
+	<!--This is give the edges (away from holes) an accent.-->
+		<MaterialComponent 
+      _enabled="1" 
+      is_rare="0" 
+      limit_max_y="2048" 
+      limit_min_y="-4096" 
+      limit_y="0" 
+      material_index="11" 
+      material_max="9.0" 
+      material_min="7.0" 
+      material_name="abyssal_glare_lettuce_static" 
+      add_perlin="1"
+      add_perlin_scale_y="0.1"
+      add_perlin_scale_x="0.1"
+      rare_polka_is_boxed="1" 
+      rare_polka_probability="0.2" 
+      rare_polka_radius_high="0.995" 
+      rare_polka_radius_low="0.1" 
+      rare_required_max="10" 
+      rare_required_min="0.2" 
+      rare_scale_x="0.005" 
+      rare_scale_y="0.005" 
+      rare_use_perlin="1" 
+      rare_use_polka="1" >
+    </MaterialComponent>
+	
+  </Materials>
+
+</Biome>

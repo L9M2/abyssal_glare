@@ -1,0 +1,59 @@
+<Entity>
+
+	<InheritTransformComponent />
+    <LightComponent
+        _enabled="1" 
+        radius = "120"
+        r = "237"
+        g = "210"
+        b = "141"
+        offset_x="0"
+        offset_y="0"
+        fade_out_time="3"
+    >
+    </LightComponent>
+
+    <SpriteComponent 
+        alpha="0.8"
+        image_file="data/particles/torch_fog_of_war_hole.xml"
+        smooth_filtering="1"
+        fog_of_war_hole="1"
+        has_special_scale="1"
+        special_scale_x="4"
+        special_scale_y="4" >
+    </SpriteComponent>
+
+    <GameEffectComponent 
+        effect="CUSTOM"
+        custom_effect_id="ABYSSAL_GLARE_HAPPY"
+        frames="60"
+    >
+	</GameEffectComponent >	
+    <ParticleEmitterComponent 
+    emitted_material_name="spark_yellow"
+    gravity.y="0.0"
+    lifetime_min="0.5"
+    lifetime_max="1.0"
+    count_min="10"
+    count_max="20"
+    render_on_grid="1"
+    fade_based_on_lifetime="1"
+    area_circle_radius.min="8"
+    area_circle_radius.max="32"
+    cosmetic_force_create="0"
+    airflow_force="1.5"
+    airflow_time="1.9"
+    airflow_scale="0.15"
+    emission_interval_min_frames="1"
+    emission_interval_max_frames="1"
+    emit_cosmetic_particles="1"
+    draw_as_long="1"
+    x_vel_min="-1"
+    x_vel_max="1"
+    y_vel_min="-1"
+    y_vel_max="1"
+    is_emitting="1" 
+    velocity_always_away_from_center="8"
+    >
+</ParticleEmitterComponent>
+</Entity>

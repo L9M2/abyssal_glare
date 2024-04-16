@@ -1,0 +1,15 @@
+<Entity>
+    <LifetimeComponent
+        lifetime="600"
+    >
+    </LifetimeComponent>
+    <VariableStorageComponent
+        name="overcast_weather"
+        value_int="2"
+    >
+    </VariableStorageComponent>
+    <LuaComponent
+        script_source_file="mods/abyssal_glare/files/script/projectiles/overcast_weather.lua"
+    >
+    </LuaComponent>
+</Entity>

@@ -1,0 +1,21 @@
+<Entity>
+    <LifetimeComponent
+    lifetime="1"
+    >
+    </LifetimeComponent>
+    <LuaComponent
+    script_source_file="mods/abyssal_glare/files/script/entities/deadly_rain.lua"
+    >
+    </LuaComponent>
+    <AreaDamageComponent
+    aabb_min.x="-1" 
+    aabb_min.y="-1" 
+    aabb_max.x="1" 
+    aabb_max.y="1" 
+    damage_per_frame="0.1"
+    update_every_n_frame="1"
+    death_cause="$damage_abyssal_glare_deadly_rain"
+    damage_type="DAMAGE_CURSE"
+    >
+    </AreaDamageComponent>
+</Entity>

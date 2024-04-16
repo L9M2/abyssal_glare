@@ -1,0 +1,252 @@
+<Biome>
+<!--Alright I'm stumped. I'm trying to figure out how to make the random noise around the edges of the portal room, but instead in the biome border itself. Where this border is filled with Abyssal Crystal with random blobs of the dense version. For some reason. I don't know why, but the noise generator utterly shits itself and uses the world noise as apart of the algorithm. Which is not ideal since it leaves MASSIVE HOLES everywhere. I don't even know wtf is going on here.
+
+	--The X Scale of hte perlin noise. Lower is thinner waves of noise. Going from high (solid terrain) to low (little terrain)
+	
+	--Doesn't have an effect?
+    mExtraPerlinScaleX="0.05" 
+	--Doesn't have an effect?
+    mExtraPerlinScaleY="0.0342857" 
+	
+	
+	--Gradient is the strip effect of the entire noise function. If zoomed out, you could see it radiate out in a circle from the center of the world, though I'm not entirely sure how to force it go above the center, it's biased towards the bottom of the world.
+	
+    mGradientAddNoise="1" 
+    mGradientEndY="10240" 
+	
+	--Possibly the 'extremes' of the noise function. Like instead of from [0-1] It's [Low-High].
+	--Doesn't affect 'wave thickness'
+    mGradientHighNoise="2340.057" 
+    mGradientLowNoise="-2920.571" 
+	
+	--Amplitude?
+	--When set to 10: No Effect?
+    mGradientMaxY="1.17" 
+	--When set to -10: No Effect?
+    mGradientMinY="-1.25" 
+	
+	--Period of noise?
+    mGradientNoiseScale="0.00128571" 
+	
+	--Set to 0.1: No Effect?
+    mGradientSinMultipleMax="0.0005153" 
+	--Set to 0.021 it did: No Effect?
+    mGradientSinMultipleMin="0.0000021" 
+	
+    mGradientStartY="-10240" 
+	
+	--? Unknown other values besides 0,1
+    mGradientType="1" 
+	
+	--Unknown how the 'insidePerlin' works.
+	
+	--It might clamp the noise between 0-1
+    mInsidePerlinClamped="0" 
+	
+	--
+    mInsidePerlinScaleMax="2" 
+	
+	--
+    mInsidePerlinScaleMin="0.057143" 
+    mInsidePerlinScaleX="1" 
+    mInsidePerlinScaleY="1" 
+    mInsidePerlinScaled="1" 
+	
+	--0 For the EDR wall.
+	-- No effect?
+    mInsidePerlinSquared="1" 
+	
+    mMultiplierExtraPerlin="1" 
+	
+	--Affects the Noise of the material noise waves (Like Dense Rock/Extremely Dense Rock pattern) Smaller = More Pronounced and Wavy/Distorted.
+	--Low Enough values makes it like a smaller effect of the wavy biome borders.
+	--Though this is overwritten by the gradient function.
+    mMultiplierGradient="0.1" 
+	
+	
+	--Setting it to 0.1
+	--It removed the strips of DAC, but it either made it really small or removed entirely.
+    mMultiplierPerlin="0.642857" 
+	
+	--Regular cloudy noise!
+	--A scale of '1' makes it very noisy. With 50% of a material in a 20x20 pixel area being one material or another.
+    mPerlinScale_x="0.1" 
+    mPerlinScale_y="0.1" 
+
+	
+	--Possible noise stuff. Sea Level
+    mWaterLevel="1000"
+	
+	--Wheither or not the image isn't visible above ground. (like with the EDR wall)
+    limit_background_image="1"
+	
+	--Seems to determine how the 'wavy border' of biomes interact. Kinda janky borders with 1.
+	--There IS  a pattern to how it works, but it seems to work best with wang tile system than just random noise generation.
+    fat_biome_edges="0"
+	
+	--Straight forward.
+    has_rain="0"
+
+-->
+
+<!--Seems to get the result I want. Giant holes in the wall, but still noisy with occasional diamond accents.-->
+  <Topology 
+    name="$biome_abyssal_glare_crystal" 
+    background_image="mods/abyssal_glare/files/biome_gfx/abyssal_biome_wall.png"
+    background_edge_left="mods/abyssal_glare/files/biome_gfx/edges/abyssal_biome_wall_r.png"
+    background_edge_right="mods/abyssal_glare/files/biome_gfx/edges/abyssal_biome_wall_l.png"
+    background_edge_top="mods/abyssal_glare/files/biome_gfx/edges/abyssal_biome_wall_t.png"
+    background_edge_bottom="mods/abyssal_glare/files/biome_gfx/edges/abyssal_biome_wall_b.png"
+    background_edge_priority="11"     
+    background_use_neighbor="0"
+    type="BIOME_PROCEDURAL"
+    lua_script="data/scripts/biomes/hills.lua"
+    mExtraPerlinScaleX="0.05" 
+    mExtraPerlinScaleY="0.0342857" 
+    mGradientAddNoise="1" 
+    mGradientEndY="10240" 
+    mGradientHighNoise="20.057" 
+    mGradientLowNoise="-20.571" 
+    mGradientMaxY="10.0" 
+    mGradientMinY="-10.0" 
+    mGradientNoiseScale="0.00128571" 
+    mGradientSinMultipleMax="1.0" 
+    mGradientSinMultipleMin="0.021" 
+    mGradientStartY="-10240" 
+    mGradientType="1" 
+    mInsidePerlinClamped="0" 
+    mInsidePerlinScaleMax="3" 
+    mInsidePerlinScaleMin="-2" 
+    mInsidePerlinScaleX="0.1" 
+    mInsidePerlinScaleY="0.1" 
+    mInsidePerlinScaled="1" 
+    mInsidePerlinSquared="1" 
+    mMultiplierExtraPerlin="0.06" 
+    mMultiplierGradient="0.01" 
+    mMultiplierPerlin="4.9" 
+    mPerlinScale_x="0.1" 
+    mPerlinScale_y="0.1" 
+    mWaterLevel="1000"
+    limit_background_image="0"
+    fat_biome_edges="0"
+    has_rain="0"
+     >
+  </Topology>
+
+  <!------------ MATERIALS -------------------->
+
+  <Materials 
+    name="solid_wall" 
+     >
+	<!--This is give variety to the dark materials.-->
+    <MaterialComponent 
+      _enabled="1" 
+      is_rare="1" 
+      limit_max_y="2048" 
+      limit_min_y="100" 
+      limit_y="0" 
+      material_index="10" 
+      material_max="5.2" 
+      material_min="1.1" 
+      material_name="diamond" 
+      rare_polka_is_boxed="0" 
+      rare_polka_probability="0.43" 
+      rare_polka_radius_high="0.286" 
+      rare_polka_radius_low="0.11" 
+      rare_required_max="3" 
+      rare_required_min="0.371429" 
+      rare_scale_x="0.0214286" 
+      rare_scale_y="0.0214286" 
+      rare_use_perlin="0" 
+      rare_use_polka="1" >
+    </MaterialComponent>
+    
+	<!--This is our filler. Other spaces are air.-->
+    <MaterialComponent 
+      _enabled="1" 
+      is_rare="0" 
+      limit_max_y="2048" 
+      limit_min_y="-2048" 
+      limit_y="0" 
+      material_index="10" 
+      material_max="3.2" 
+      material_min="-1.6" 
+      material_name="abyssal_glare_abyssal_crystal" 
+      add_perlin="1"
+      add_perlin_scale_y="0.0001"
+      add_perlin_scale_x="0.003"
+      rare_polka_is_boxed="1" 
+      rare_polka_probability="1.8" 
+      rare_polka_radius_high="10.95" 
+      rare_polka_radius_low="5.1" 
+      rare_required_max="1" 
+      rare_required_min="0.1" 
+      rare_scale_x="0.0005" 
+      rare_scale_y="0.0005" 
+      rare_use_perlin="1" 
+      rare_use_polka="1" 
+	  rare_offset_by_seed="1"
+	  rare_offset_x="-9"
+	  rare_offset_y="99"
+	  >
+    </MaterialComponent>
+	
+	<!--This is give the holes an accent.-->
+	<MaterialComponent 
+      _enabled="1" 
+      is_rare="0" 
+      limit_max_y="2048" 
+      limit_min_y="100" 
+      limit_y="0" 
+      material_index="11" 
+      material_max="5.0" 
+      material_min="1.0" 
+      material_name="abyssal_glare_dense_abyssal_crystal" 
+      add_perlin="1"
+      add_perlin_scale_y="0.01"
+      add_perlin_scale_x="0.01"
+      rare_polka_is_boxed="1" 
+      rare_polka_probability="0.2" 
+      rare_polka_radius_high="0.995" 
+      rare_polka_radius_low="0.1" 
+      rare_required_max="10" 
+      rare_required_min="0.2" 
+      rare_scale_x="0.005" 
+      rare_scale_y="0.005" 
+      rare_use_perlin="1" 
+      rare_use_polka="1" >
+    </MaterialComponent>
+	
+	
+	
+	
+	
+	<!--This is give the edges (away from holes) an accent.-->
+		<MaterialComponent 
+      _enabled="1" 
+      is_rare="0" 
+      limit_max_y="2048" 
+      limit_min_y="100" 
+      limit_y="0" 
+      material_index="11" 
+      material_max="3.0" 
+      material_min="-2.0" 
+      material_name="abyssal_glare_dense_abyssal_crystal" 
+      add_perlin="1"
+      add_perlin_scale_y="0.1"
+      add_perlin_scale_x="0.1"
+      rare_polka_is_boxed="1" 
+      rare_polka_probability="0.2" 
+      rare_polka_radius_high="0.995" 
+      rare_polka_radius_low="0.1" 
+      rare_required_max="10" 
+      rare_required_min="0.2" 
+      rare_scale_x="0.005" 
+      rare_scale_y="0.005" 
+      rare_use_perlin="1" 
+      rare_use_polka="1" >
+    </MaterialComponent>
+	
+  </Materials>
+
+</Biome>

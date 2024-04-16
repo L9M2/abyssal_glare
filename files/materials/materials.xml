@@ -1,0 +1,1205 @@
+<Materials>
+<!-- Edge Graphics:
+  * COLOR_EDGE_PIXELS
+  * EVERYWHERE
+  * CARDINAL_DIRECTIONS
+  * NORMAL_BASED
+-->
+
+<!-- list of materials required:
+  * fire
+  * smoke
+  * water
+-->
+
+<!-- order of materials:
+  fire (for hax reasons)
+  static
+  sand - ground stuff
+    sand - rare metals
+    sand - other
+  liquid
+  gas
+  box2d (solid+physics)
+  special
+  hax
+  bad jokes
+-->
+
+<!-- tags:
+  [fire]
+  [static]
+  [sand_ground]
+  [sand_metal]
+  [sand_other]
+  [liquid]
+  [gas]
+  [box2d]
+  [hax]
+
+  [acid]
+  [lava]
+  [slime]
+  [plant]
+  [corrodible]
+  [meltable]
+  [meltable_to_lava]
+  [molten]
+  [soluble]
+  [evaporable]
+  [evaporable_fast]
+  [frozen]
+  [radioactive]
+  [requires_air]
+  [requires_water]
+  [grows_grass]
+
+
+  NOTE: [meltable] materials need to have a MATERIALNAME_molten variation
+-->
+
+<!--
+  solid_static_type=
+  SOLID_DYNAMIC = 0,
+  SOLID_STATIC_ALWAYS = 1,
+  SOLID_STATIC_BUT_BREAK = 2,
+  SOLID_STATIC_TREE_BREAK = 3,
+  SOLID_DYNAMIC_BREAK_INTO_OTHER_MATERIAL = 4,
+  SOLID_STATIC_ICE_BREAK = 5
+-->
+	<!--
+		L9M2: Hey me again. I just want to let you know. You're awesome :D
+		So some of these materials are somewhat jank. Though I try to mostly stick to a theme of sorts depending on type.
+		Several materials around magic have a custom effect associated. Even game some of them fancy particle effects.
+		There's even some extra reactions with them.
+		You can also see how I did the 'deadly rain' hack.
+		So you know how Monstrous Powder spawns the pit boss?
+		That's caused by a material interaction. You can spawn ANY ENTITY! Hell it's actually how the cordecepts and spotaneous rat perks work.
+
+
+
+	-->
+<!--====================================================================-->
+<!--=============================Materials==============================-->
+<!--====================================================================-->
+
+
+	
+<CellDataChild
+	_parent="wood_static"
+	_inherit_reactions="1"
+	tags="[corrodible],[alchemy],[solid],[earth]"
+	name="silver_static"
+	ui_name="$mat_silver_static"
+	solid_friction="0.7"
+	burnable="0"
+	fire_hp="10000"
+	hp="8000"
+	gfx_glow="127"
+	cell_type="liquid"
+	liquid_gravity="1.2"
+	liquid_sand="1"
+	liquid_static="1"
+	solid_static_type="1"
+	electrical_conductivity="1"
+	wang_color="ff8b919e" >
+	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/silver_dark.png"
+	>
+	</Graphics>
+</CellDataChild>
+
+<CellDataChild
+	_parent="water"
+	name="silver_radioactive"
+	tags="[sand_metal],[corrodible],[alchemy],[solid],[earth]"
+	ui_name="$mat_silver_radioactive"
+	wang_color="ff8b919f"
+	gfx_glow_color="FF00DD00"
+	danger_radioactive="1"
+	status_effects="RADIOACTIVE"
+	>
+	<Graphics
+	texture_file="data/materials_gfx/silver.png"
+	color="ffb8ae58"
+	>
+	</Graphics>
+	<ParticleEffect
+	vel.y="-17.14"
+	vel_random.min_x="-11.71"
+	vel_random.max_x="11.71"
+	vel_random.min_y="-17.18"
+	vel_random.max_y="-2.8"
+	lifetime.min="0.6"
+	lifetime.max="1.3"
+	gravity.y="42"
+	render_on_grid="1"
+	airflow_force="0.8314"
+	airflow_scale="0.1371"
+	friction="0.0001"
+	probability="0.003"
+	count.min="0"
+	count.max="1"
+	>
+	</ParticleEffect>
+</CellDataChild>
+
+<CellDataChild
+	_parent="silver_static"
+	name="silver_static_radioactive"
+	tags="[sand_metal],[corrodible],[alchemy],[solid],[earth]"
+	ui_name="$mat_silver_static_radioactive"
+	wang_color="ff8b91af"
+	gfx_glow_color="FF00DD00"
+	danger_radioactive="1"
+	status_effects="RADIOACTIVE"
+	>
+	<Graphics
+	texture_file="data/materials_gfx/silver.png"
+	color="ffb8ae58"
+	>
+	</Graphics>
+	<ParticleEffect
+	vel.y="-17.14"
+	vel_random.min_x="-11.71"
+	vel_random.max_x="11.71"
+	vel_random.min_y="-17.18"
+	vel_random.max_y="-2.8"
+	lifetime.min="0.6"
+	lifetime.max="1.3"
+	gravity.y="42"
+	render_on_grid="1"
+	airflow_force="0.8314"
+	airflow_scale="0.1371"
+	friction="0.0001"
+	probability="0.003"
+	count.min="0"
+	count.max="1"
+	>
+	</ParticleEffect>
+</CellDataChild>
+
+
+<CellDataChild
+	_parent="water"
+  	name="abyssal_glare_deadly_water"
+  	ui_name="$mat_abyssal_glare_deadly_water"
+	tags="[corrodible],[meltable_to_lava],[alchemy],[slime],[liquid_common],[food],[chaotic_transmutation]"
+  	wang_color="A16aa26b"
+  	status_effects="WET"
+  	>
+  	<Graphics
+  	color="A1325d6b"
+  	>
+  	</Graphics>
+</CellDataChild>
+
+
+
+<!--====================================================================-->
+<!--============================MISC/UNIQUE=============================-->
+<!--====================================================================-->
+
+<CellData
+	name="abyssal_glare_anti_creepy_liquid"
+	ui_name="$mat_abyssal_glare_anti_creepy_liquid"
+  	tags="[liquid]"
+	burnable="0"
+	density="1"
+	lifetime="120"
+	cell_type="liquid"
+	wang_color="7ec4b8d9"
+	generates_smoke="0"
+	liquid_gravity="0.5"
+	liquid_sand="0"
+	gfx_glow="90"
+	on_fire="0"
+	requires_oxygen="0"
+	temperature_of_fire="60" 
+	>
+</CellData>
+
+
+<CellDataChild
+	_parent="slime"
+  	name="abyssal_glare_mucus"
+  	ui_name="$mat_abyssal_glare_mucus"
+	tags="[liquid],[corrodible],[water],[liquid_common]"
+  	wang_color="A1305d6b"
+	generates_smoke="0"  
+	liquid_gravity="0.05"  
+	liquid_sand="0"  
+	liquid_sticks_to_ceiling="1"
+	liquid_slime="1"
+	liquid_stains="2"
+	liquid_flow_speed="0.3"
+	stickyness="0.0"
+	solid_friction="0.3"
+	on_fire="0"  
+	requires_oxygen="0"  
+	temperature_of_fire="5" 
+	cold_freezes_to_material="ice_slime_static"
+	status_effects="FOOD_POISONING"
+	audio_physics_material_event="slime"
+	audio_physics_material_wall="slime"
+	audio_physics_material_solid="slime" 
+	show_in_creative_mode="1"
+  	>
+  	<Graphics
+  	color="A1305d6b"
+	texture_file="mods/abyssal_glare/files/materials_gfx/mat_mucus.png"
+  	>
+  	</Graphics>
+	<StatusEffects>
+		<Stains>
+			<StatusEffect type="SLIMY" />
+			<StatusEffect type="FOOD_POISONING" />
+			<StatusEffect type="POISONED" />
+		</Stains>
+		<Ingestion>
+			<StatusEffect type="FOOD_POISONING" amount="0.3" />
+			<StatusEffect type="POISONED" amount="0.4" />
+		</Ingestion>
+	</StatusEffects>
+</CellDataChild>
+
+<!--====================================================================-->
+<!--==============================ABYSSAL===============================-->
+<!--====================================================================-->
+
+<CellData
+	name="abyssal_glare_abyssal_sand"
+	ui_name="$mat_abyssal_glare_abyssal_sand"
+	tags="[sand_metal],[solid],[matter_eater_ignore_list],[indestructible]"
+	burnable="0"
+	density="93"
+	cell_type="liquid"
+	wang_color="ff1df999"
+	gfx_glow="127"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="1"
+	liquid_solid="1"
+	on_fire="0"
+	durability="27"
+	requires_oxygen="1"
+	solid_friction="0.7"
+	hp="299999" 
+	audio_physics_material_event="rock"
+	audio_physics_material_wall="rock"
+	audio_physics_material_solid="rock"
+	>
+	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/abyssal_crystal.png"
+	color="ffb89e58" >
+	</Graphics>
+</CellData>
+
+<CellData 
+	name="abyssal_glare_abyssal_crystal"
+    ui_name="$mat_abyssal_glare_abyssal_crystal"
+    wang_color="ff0d0911"
+	tags="[static],[solid],[matter_eater_ignore_list],[indestructible]"
+	burnable="0"
+	density="96"
+	cell_type="liquid"
+	liquid_gravity="1.2"
+	liquid_sand="1"
+	liquid_static="1"
+	solid_static_type="1"
+	durability="27"
+	on_fire="0"
+	hp="399999" 
+	platform_type="1"
+	audio_physics_material_event="rock"
+	audio_physics_material_wall="rock"
+	audio_physics_material_solid="rock"
+    >
+	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/abyssal_crystal.png"
+	color="ff0d0911" >
+    </Graphics>
+</CellData>
+
+<CellData
+	name="abyssal_glare_dense_abyssal_crystal"
+    ui_name="$mat_abyssal_glare_dense_abyssal_crystal"
+    wang_color="ff0d0912"
+	tags="[static],[solid],[matter_eater_ignore_list],[indestructible]"
+	burnable="0"
+	density="99"
+	cell_type="liquid"
+	liquid_gravity="1.2"
+	liquid_sand="1"
+	liquid_static="1"
+	solid_static_type="1"
+	durability="99"
+	on_fire="0"
+	hp="999999" 
+	platform_type="1"
+	audio_physics_material_event="rock"
+	audio_physics_material_wall="rock"
+	audio_physics_material_solid="rock"
+    >
+	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/dense_abyssal_crystal.png"
+	color="ff0d0912" >
+    </Graphics>
+</CellData>
+ 
+<CellData
+     name="abyssal_glare_abyssal_void"
+    ui_name="$mat_abyssal_glare_abyssal_void"
+    wang_color="ff0d0913"
+	burnable="0"  
+	density="27"  
+	generates_smoke="0"  
+	liquid_gravity="0.01"  
+	liquid_sand="0"  
+	liquid_sticks_to_ceiling="40"
+	liquid_slime="1"
+	liquid_stains="2"
+	stickyness="0.7"
+	solid_friction="0.5"
+	on_fire="0"  
+	requires_oxygen="0"
+	audio_physics_material_event="slime"
+	audio_physics_material_wall="slime"
+	audio_physics_material_solid="slime" 
+	show_in_creative_mode="1"
+    >
+	<StatusEffects>
+		<Stains>
+			<StatusEffect type="WET" />
+		</Stains>
+		<Ingestion>
+			<StatusEffect type="TRIP" amount="0.4" />
+			<StatusEffect type="INGESTION_DRUNK" amount="0.5" />
+		</Ingestion>
+	</StatusEffects>
+	
+  	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/abyssal_void.png"
+	color="880d0913" >
+    </Graphics>
+</CellData>
+
+<!--====================================================================-->
+<!--===============================FOOD=================================-->
+<!--====================================================================-->
+
+<CellDataChild
+	_parent="water"
+	name="abyssal_glare_sweet_water"
+	ui_name="$mat_abyssal_glare_sweet_water"
+	tags="[liquid],[corrodible],[freezable],[water],[liquid_common]"
+	wang_color="A1325d6b"
+	cold_freezes_to_material="ice_static"
+	warmth_melts_to_material="steam"
+	warmth_melts_chance_rev="500"
+	status_effects="WET"
+	>
+	<Graphics
+	color="A1325d6b"
+	>
+	</Graphics>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="FASTER_LEVITATION" amount="0.1" />
+			<StatusEffect type="MOVEMENT_FASTER_2X" amount="0.1" />
+			<StatusEffect type="MANA_REGENERATION" amount="0.025" />
+			<StatusEffect type="CHARM" amount="0.15" />
+		</Ingestion>
+	</StatusEffects>
+</CellDataChild>
+
+<CellData
+	name="abyssal_glare_sugar"
+	ui_name="$mat_abyssal_glare_sugar"
+	tags="[sand_other],[corrodible],[alchemy],[chaotic_transmutation]"
+	burnable="0"
+	density="6"
+	cell_type="liquid"
+	wang_color="ffcedce0"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="1"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="10"
+	solid_friction="1"
+	hp="1000" 
+	audio_physics_material_event="sand"
+	audio_physics_material_wall="sand"
+	audio_physics_material_solid="sand"
+	show_in_creative_mode="1"
+	>
+	<Graphics
+	texture_file="data/materials_gfx/salt.png"
+	color="ffcedce0" >
+	</Graphics>
+	<StatusEffects>
+		<Ingestion>
+	  		<StatusEffect type="FASTER_LEVITATION" amount="0.1" />
+	  		<StatusEffect type="MOVEMENT_FASTER_2X" amount="0.1" />
+	  		<StatusEffect type="MANA_REGENERATION" amount="0.025" />
+	  		<StatusEffect type="CHARM" amount="0.15" />
+	 	</Ingestion>
+	</StatusEffects>
+</CellData>
+
+<CellData
+	name="abyssal_glare_cheese_molten"
+	ui_name="$mat_abyssal_glare_cheese_molten"
+	tags="[liquid],[corrodible],[molten],[alchemy],[solid],[earth],[food]"
+	burnable="1"
+	density="5"
+	cell_type="liquid"
+	wang_color="ffeda215"
+	liquid_gravity="1.4"
+	liquid_sand="0"
+	liquid_viscosity="75"
+	durability="5"
+	status_effects="ON_FIRE"
+	on_fire="0"
+	requires_oxygen="0"
+	temperature_of_fire="100"
+	gfx_glow="200"
+	show_in_creative_mode="1"
+	audio_materialaudio_type="LAVA" 
+	fire_hp="90000"
+	audio_physics_material_event="slime"
+	audio_physics_material_wall="slime"
+	audio_physics_material_solid="slime"
+	>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="INGESTION_ON_FIRE" amount="0.1" />
+		</Ingestion>
+	</StatusEffects>
+  	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/mat_cheese_molten.png"
+	color="ffeda215" >
+    </Graphics>
+</CellData>
+
+<CellData
+	name="abyssal_glare_ice_cream_liquid"
+	ui_name="$mat_abyssal_glare_ice_cream_liquid"
+	tags="[liquid],[frozen],[meltable_to_water],[alchemy],[solid],[food]"
+	burnable="0"
+	density="2.7"
+	cell_type="liquid"
+	wang_color="fff2e9d3"
+	generates_smoke="0"  
+	liquid_gravity="0.01"  
+	liquid_sand="0"  
+	liquid_sticks_to_ceiling="40"
+	temperature_of_fire="10"
+	liquid_slime="1"
+	liquid_stains="2"
+	stickyness="2.0"
+	solid_friction="1.0"
+	on_fire="0"  
+	requires_oxygen="0"
+	audio_physics_material_event="ice"
+	audio_physics_material_wall="ice"
+	audio_physics_material_solid="ice"
+	show_in_creative_mode="1"
+    >
+	<StatusEffects>
+		<Stains>
+			<StatusEffect type="WET" />
+		</Stains>
+		<Ingestion>
+			<StatusEffect type="FARTS" amount="0.03" />
+			<StatusEffect type="INGESTION_FREEZING" amount="0.13" />
+			<StatusEffect type="MOVEMENT_FASTER_2X" amount="0.25" />
+		</Ingestion>
+	</StatusEffects>
+  	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/mat_ice_cream.png"
+	color="fff2e9d3" >
+    </Graphics>
+</CellData>
+
+<CellData
+	name="abyssal_glare_ice_cream_static"
+	ui_name="$mat_abyssal_glare_ice_cream_static"
+	tags="[static],[frozen],[meltable_to_water],[alchemy],[solid],[food]"
+	burnable="0"
+	density="7"
+	cell_type="liquid"
+	wang_color="fff2e9d4"
+	generates_smoke="0"  
+	liquid_gravity="0.01"  
+	liquid_sand="1"   
+	liquid_static="1"  
+	temperature_of_fire="10"
+	liquid_slime="1"
+	slippery="1"
+	liquid_stains="2"
+	stickyness="2.0"
+	solid_friction="1.0"
+	on_fire="0"  
+	requires_oxygen="0"
+	audio_physics_material_event="ice"
+	audio_physics_material_wall="ice"
+	audio_physics_material_solid="ice"
+	show_in_creative_mode="1"
+    >
+	<StatusEffects>
+		<Stains>
+			<StatusEffect type="WET" />
+		</Stains>
+		<Ingestion>
+			<StatusEffect type="INGESTION_FREEZING" amount="0.13" />
+			<StatusEffect type="MOVEMENT_FASTER_2X" amount="0.03" />
+		</Ingestion>
+	</StatusEffects>
+  	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/mat_ice_cream.png"
+	color="fff2e9d4" >
+    </Graphics>
+</CellData>
+
+<CellData
+	name="abyssal_glare_lettuce_static"
+	ui_name="$mat_abyssal_glare_lettuce_static"
+	tags="[static],[alchemy],[solid],[burnable],[food]"
+	burnable="1"
+	density="7"
+	cell_type="liquid"
+	wang_color="ff146919"
+	generates_smoke="0"  
+	liquid_gravity="0.01"  
+	liquid_sand="1"   
+	liquid_static="1"  
+	temperature_of_fire="10"
+	liquid_slime="1"
+	solid_friction="1.0"
+	on_fire="0"  
+	requires_oxygen="0"
+	audio_physics_material_event="gravel"
+	audio_physics_material_wall="gravel"
+	audio_physics_material_solid="rock"
+	show_in_creative_mode="1"
+	>
+	<StatusEffects>
+	<Ingestion>
+		<StatusEffect type="FARTS" amount="0.1" />
+	</Ingestion>
+	</StatusEffects>
+	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/mat_lettuce.png"
+	color="ff146919" >
+	</Graphics>
+</CellData>
+
+<CellData
+	name="abyssal_glare_bread_static"
+	ui_name="$mat_abyssal_glare_bread_static"
+	tags="[static],[alchemy],[solid],[burnable],[food]"
+	burnable="1"
+	density="7"
+	cell_type="liquid"
+	wang_color="fff2e9d6"
+	generates_smoke="0"  
+	liquid_gravity="0.01"  
+	liquid_sand="1"   
+	liquid_static="1"  
+	temperature_of_fire="10"
+	liquid_slime="1"
+	solid_friction="1.0"
+	on_fire="0"  
+	requires_oxygen="0"
+	audio_physics_material_event="gravel"
+	audio_physics_material_wall="gravel"
+	audio_physics_material_solid="rock"
+	show_in_creative_mode="1"
+	>
+	<StatusEffects>
+	<Ingestion>
+		<StatusEffect type="FARTS" amount="0.1" />
+	</Ingestion>
+	</StatusEffects>
+	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/mat_bread.png"
+	color="fff2e9d6" >
+	</Graphics>
+</CellData>
+  
+<CellData
+	name="abyssal_glare_meat_static"
+	ui_name="$mat_meat_done"
+  	tags="[alchemy],[meat],[earth],[food]"
+	burnable="0"
+	density="6"
+	solid_friction="1"
+	cell_type="liquid"
+	wang_color="fff2e9d7"
+	generates_smoke="0"
+	on_fire="0"
+	liquid_gravity="0.01"  
+	liquid_sand="1"   
+	liquid_static="1" 
+	requires_oxygen="1"
+	temperature_of_fire="30"
+	autoignition_temperature="99" 
+	hp="1000"
+	fire_hp="600"
+	solid_on_collision_material="blood"
+	solid_on_collision_splash_power="1"
+	audio_physics_material_wall="meat"
+	audio_physics_material_solid="meat"
+	audio_is_soft="1"
+	show_in_creative_mode="1"
+	>
+    <Graphics
+	texture_file="data/materials_gfx/meat_done.png"
+	color="ffcc4c4c"
+	pixel_all_around="ffcc4c4c"
+	
+	pixel_lonely="ffcc4c4c"
+	pixel_top_right="ffcc4c4c"
+	pixel_bottom_left="ffcc4c4c"
+	
+	pixel_left="ffc996e6"
+	pixel_top_left="ffc996e6"
+	pixel_top="ffc996e6"
+	
+	pixel_right="ff8f4d53"
+	pixel_bottom_right="ff8f4d53"
+	pixel_bottom="ff8f4d53"
+        >
+    </Graphics>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="MOVEMENT_FASTER_2X" amount="0.1" />
+		</Ingestion>
+	</StatusEffects>
+</CellData>
+  
+<!--====================================================================-->
+<!--==========================MAGICAL LIQUIDS===========================-->
+<!--====================================================================-->
+
+<!---->
+<!--Sorrowflux: Inflicts sadness and makes entity cry.-->
+<!--Also causes a sad cloud above the players head.-->
+
+<CellData
+	name="abyssal_glare_magic_liquid_sorrowflux"
+	ui_name="$mat_abyssal_glare_magic_liquid_sorrowflux"
+  	tags="[liquid],[water],[magic_liquid],[impure]"
+	burnable="0"
+	density="3.1415"
+	cell_type="liquid"
+	wang_color="70383a69"
+	generates_smoke="0"
+	liquid_gravity="0.9"
+	liquid_sand="0"
+	gfx_glow="175"
+	on_fire="0"
+	requires_oxygen="0"
+	liquid_stains="1"
+	liquid_sprite_stain_shaken_drop_chance="1"
+	status_effects="ABYSSAL_GLARE_SAD"
+	audio_materialaudio_type="MAGICAL" 
+	show_in_creative_mode="1"
+	>
+	<ParticleEffect
+		vel.y="-100"
+		vel_random.min_y="-31"
+		vel_random.max_y="74"
+		lifetime.min="0.0285"
+		lifetime.max="0.5"
+		gravity.x="-100"
+		gravity.y="100"
+		render_on_grid="1"
+		draw_as_long="1"
+		friction="7"
+		count.min="0"
+	>
+	</ParticleEffect>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="FOOD_POISONING" amount="0.2" />
+		</Ingestion>
+		<Stains>
+			<StatusEffect type="ABYSSAL_GLARE_SAD"/>
+		</Stains>
+	</StatusEffects>
+</CellData>
+<!--Joylixir: Makes entity happy!-->
+<CellData
+	name="abyssal_glare_magic_liquid_joylixir"
+	ui_name="$mat_abyssal_glare_magic_liquid_joylixir"
+  	tags="[liquid],[water],[magic_liquid],[impure]"
+	burnable="0"
+	density="2.7182"
+	cell_type="liquid"
+	wang_color="70e6f078"
+	generates_smoke="0"
+	liquid_gravity="0.6"
+	liquid_sand="0"
+	gfx_glow="200"
+	on_fire="0"
+	requires_oxygen="0"
+	liquid_stains="1"
+	liquid_sprite_stain_shaken_drop_chance="1"
+	status_effects="ABYSSAL_GLARE_HAPPY"
+	audio_materialaudio_type="MAGICAL" 
+	show_in_creative_mode="1"
+	>
+	<ParticleEffect
+		vel.y="-100"
+		vel_random.min_y="-31"
+		vel_random.max_y="74"
+		lifetime.min="0.0285"
+		lifetime.max="0.5"
+		gravity.x="-100"
+		gravity.y="100"
+		render_on_grid="1"
+		draw_as_long="1"
+		friction="6"
+		count.min="0"
+	>
+	</ParticleEffect>
+	<StatusEffects>
+		<Stains>
+			<StatusEffect type="ABYSSAL_GLARE_HAPPY" />
+		</Stains>
+		<Ingestion>
+			<StatusEffect type="FOOD_POISONING" amount="0.2" />
+		</Ingestion>
+	</StatusEffects>
+</CellData>
+<!--Anxiphasea: Related to Anxiety. Not fully implemented.-->
+<CellData
+	name="abyssal_glare_magic_liquid_anxiphasea"
+	ui_name="$mat_abyssal_glare_magic_liquid_anxiphasea"
+	tags="[liquid],[water],[magic_liquid],[impure]"
+	burnable="0"
+	density="2.7182"
+	cell_type="liquid"
+	wang_color="709a63ef"
+	generates_smoke="0"
+	liquid_gravity="1.2"
+	liquid_sand="0"
+	liquid_static="0"
+	gfx_glow="10"
+	on_fire="0"
+	requires_oxygen="0"
+	liquid_stains="1"
+	liquid_sprite_stain_shaken_drop_chance="1"
+	audio_materialaudio_type="MAGICAL" 
+	show_in_creative_mode="1"
+	>
+	<ParticleEffect
+	vel.y="-10"
+	vel_random.min_x="-27"
+	vel_random.max_x="50"
+	vel_random.min_y="-69"
+	vel_random.max_y="9"
+	lifetime.min="0.0285"
+	lifetime.max="2.35"
+	gravity.x="-100"
+	gravity.y="10"
+	render_on_grid="1"
+	draw_as_long="1"
+	friction="7"
+	probability="0.001"
+	count.min="2"
+	count.max="50"
+	>
+	</ParticleEffect>
+	<StatusEffects>
+		<Stains>
+			<StatusEffect type="ABYSSAL_GLARE_ANXIETY"/>
+			<StatusEffect type="ABYSSAL_GLARE_TWITCHY"/>
+		</Stains>
+	 	<Ingestion>
+			<StatusEffect type="FOOD_POISONING" amount="0.2" />
+	 	</Ingestion>
+	</StatusEffects>
+	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/mat_anxiphasea.png"
+	color="ff313b36"
+	pixel_all_around="ff313b36"
+	>
+	</Graphics>
+</CellData>
+<!--Elysian Powder: Ambrosia like substance that's harmful to the touch, but you get ambrosia when consumed. -->
+<CellData
+	name="abyssal_glare_elysian_powder"
+	ui_name="$mat_abyssal_glare_elysian_powder"
+	tags="[liquid],[water],[magic_liquid]"
+	burnable="0"
+	density="12.7982"
+	cell_type="liquid"
+	wang_color="ffe1d65c"
+	generates_smoke="0"
+	liquid_gravity="1.2"
+	liquid_sand="1"
+	liquid_static="0"
+	gfx_glow="0"
+	on_fire="0"
+	requires_oxygen="0"
+	liquid_stains="0"
+	liquid_sprite_stain_shaken_drop_chance="1"
+	status_effects="PROTECTION_ALL"
+	audio_materialaudio_type="MAGICAL" 
+	show_in_creative_mode="1"
+	>
+	<ParticleEffect
+	vel.y="-10"
+	vel_random.min_x="-90"
+	vel_random.max_x="90"
+	vel_random.min_y="-27"
+	vel_random.max_y="-1"
+	lifetime.min="0.002"
+	lifetime.max="3.31"
+	gravity.x="0"
+	gravity.y="-2"
+	render_on_grid="1"
+	draw_as_long="0"
+	friction="7"
+	probability="0.05"
+	airflow_force="0.6314"
+	airflow_scale="0.471"
+	count.min="1"
+	fade_based_on_lifetime="1"
+	>
+	</ParticleEffect>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="PROTECTION_ALL" amount="0.2" />
+		</Ingestion>
+	</StatusEffects>
+	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/mat_elysian_powder.png"
+	color="ffe1d65c"
+	>
+	</Graphics>
+</CellData>
+<!--Cursed Lava - Very Deadly -->
+<CellData
+	name="abyssal_glare_cursed_lava"
+	ui_name="$mat_abyssal_glare_cursed_lava"
+  	tags="[fire_lava],[liquid],[liquid_common]"
+	burnable="0"
+	density="6"
+	cell_type="liquid"
+	gfx_glow="150"
+	wang_color="ffcc592b"
+	generates_smoke="0"
+	liquid_gravity="0.2"
+	liquid_sand="0"
+	liquid_viscosity="10"
+	on_fire="0"
+	always_ignites_damagemodel="1"
+	danger_fire="1"
+	requires_oxygen="0"
+	temperature_of_fire="100"
+	status_effects="ON_FIRE"
+	audio_materialaudio_type="LAVA" 
+	cold_freezes_to_material="rock_static_cursed"
+	cold_freezes_to_dont_do_reverse_reaction="1"
+	show_in_creative_mode="1"
+	>
+	<ParticleEffect
+		vel.y="-10"
+		vel_random.min_x="-14"
+		vel_random.max_x="14"
+		vel_random.min_y="-28"
+		vel_random.max_y="-14"
+		gravity.y="25.71"
+		cosmetic_force_create="1"
+		draw_as_long="1"
+		airflow_force="2.286"
+		airflow_scale="-7.143"
+		friction="-1.34"
+		probability="0.0007"
+		>
+	</ParticleEffect>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="INGESTION_ON_FIRE" amount="0.1" />
+		</Ingestion>
+	</StatusEffects>
+</CellData>
+<!--Similar to the nasty reaction of Joylixir with Cursed rock, but in a small area around itself.-->
+<!--Not fully Implemented.-->
+<CellData
+	name="abyssal_glare_magic_foam"
+	ui_name="$mat_abyssal_glare_rock_static"
+	tags="[static],[corrodible],[meltable_to_lava],[alchemy],[solid],[earth]"
+	burnable="0"
+	density="10"
+	cell_type="liquid"
+	wang_color="ff298753"
+	liquid_gravity="1.2"
+	liquid_sand="1"
+	liquid_static="1"
+	solid_static_type="1"
+	durability="10"
+	on_fire="0"
+	hp="100000" 
+	platform_type="1"
+	audio_physics_material_event="rock"
+	audio_physics_material_wall="rock"
+	audio_physics_material_solid="rock"
+	show_in_creative_mode="1"
+	>
+    <Graphics
+		texture_file="data/materials_gfx/rock.png"
+		color="ff313b36"
+		pixel_all_around="ff313b36"
+		>
+		<Edge>
+			<EdgeGraphics 
+				color="ff233112" 
+				overwrite="0" 
+				percent="0.3" 
+				require_same_material="0" 
+				require_same_material_type="1" 
+				type="EVERYWHERE" 
+				z="1" >
+				<Images>
+					<Image 
+						allow_random_rotation="1"
+						filename="data/materials_gfx/edge_files/edge_rock_1.png" 
+					/>
+					<Image 
+						allow_random_rotation="1"
+						filename="data/materials_gfx/edge_files/edge_rock_2.png" 
+					/>
+					<Image 
+						allow_random_rotation="1"
+						filename="data/materials_gfx/edge_files/edge_rock_3.png" 
+					/>
+					<Image 
+						allow_random_rotation="1"
+						filename="data/materials_gfx/edge_files/edge_rock_4.png" 
+					/>
+					<Image 
+						allow_random_rotation="1"
+						filename="data/materials_gfx/edge_files/edge_rock_5.png" 
+					/>
+					<Image 
+						allow_random_rotation="1"
+						filename="data/materials_gfx/edge_files/edge_rock_6.png" 
+					/>
+				</Images>
+			</EdgeGraphics>
+		</Edge>
+	</Graphics>
+</CellData>
+  
+<!--====================================================================-->
+<!--==============================REACTIONS=============================-->
+<!--====================================================================-->
+
+<!--Water Reactions-->
+  
+    <Reaction probability="15"
+	input_cell1="water" 	input_cell2="honey"
+	output_cell1="abyssal_glare_sweet_water" 	output_cell2="abyssal_glare_sweet_water"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+	
+	<Reaction probability="20"
+	input_cell1="[fire]" 		input_cell2="abyssal_glare_sweet_water" input_cell3="abyssal_glare_sweet_water"
+	output_cell1="[fire]" 		output_cell2="abyssal_glare_sugar" output_cell3="steam" >
+	</Reaction>
+	
+<!--Magical Liquid Reactions-->
+  
+<!--Creating Joylixir-->
+    <Reaction probability="15"
+	input_cell1="abyssal_glare_sugar" 	input_cell2="magic_liquid_faster_levitation_and_movement"
+	output_cell1="abyssal_glare_magic_liquid_joylixir" 	output_cell2="abyssal_glare_magic_liquid_joylixir"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+	
+	<Reaction probability="15"
+	input_cell1="abyssal_glare_sweet_water" 	input_cell2="magic_liquid_faster_levitation_and_movement" input_cell3="abyssal_glare_sweet_water"
+	output_cell1="abyssal_glare_magic_liquid_joylixir" 	output_cell2="abyssal_glare_magic_liquid_joylixir" output_cell3="steam"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+	
+	<Reaction probability="15"
+	input_cell1="honey" 	input_cell2="magic_liquid_faster_levitation_and_movement"
+	output_cell1="abyssal_glare_magic_liquid_joylixir" 	output_cell2="abyssal_glare_magic_liquid_joylixir"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+	
+	
+  
+	<Reaction probability="75"
+	input_cell1="abyssal_glare_magic_liquid_joylixir" 	input_cell2="abyssal_glare_magic_liquid_sorrowflux"
+	output_cell1="fire_blue" 	output_cell2="material_confusion"
+	blob_radius1="9" blob_radius2="9">
+		<ExplosionConfig
+	
+			cell_explosion_power="30"
+			cell_explosion_damage_required="3000"
+			cell_explosion_radius_min="5"
+			cell_explosion_radius_max="6"
+			cell_explosion_probability="1.1"
+		
+			ray_energy="50000"
+			>
+		</ExplosionConfig>
+	</Reaction>
+	
+    <Reaction probability="15"
+	input_cell1="magic_liquid_charm" 	input_cell2="abyssal_glare_magic_liquid_sorrowflux"
+	output_cell1="magic_liquid_charm" 	output_cell2="magic_liquid_charm"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+	
+    <Reaction probability="15"
+	input_cell1="abyssal_glare_magic_liquid_joylixir" 	input_cell2="magic_liquid_berserk"
+	output_cell1="magic_liquid_berserk" 	output_cell2="magic_liquid_berserk"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+	
+	<Reaction probability="45"
+	input_cell1="abyssal_glare_magic_liquid_joylixir" 	input_cell2="magic_liquid_protection_all"
+	output_cell1="magic_liquid_protection_all" 	output_cell2="magic_liquid_protection_all"
+	>
+	</Reaction>
+	
+<!--Creating Blob Traps-->
+	<Reaction probability="100"
+	input_cell1="abyssal_glare_magic_liquid_joylixir" 	input_cell2="rock_static_cursed"
+	output_cell1="rock_static_cursed" 	output_cell2="rock_static_cursed"
+	blob_radius1="40" blob_radius2="40"
+	entity="mods/abyssal_glare/files/materials/conversion/cursed_rock_blob_trap.xml"
+	>
+	</Reaction>
+	
+	<Reaction probability="100"
+	input_cell1="abyssal_glare_magic_liquid_joylixir" 	input_cell2="rock_static_cursed_green"
+	output_cell1="rock_static_cursed_green" 	output_cell2="rock_static_cursed_green"
+	blob_radius1="40" blob_radius2="40"
+	entity="mods/abyssal_glare/files/materials/conversion/greed_cursed_rock_blob_trap.xml"
+	>
+	</Reaction>
+	
+	<Reaction probability="100"
+	input_cell1="abyssal_glare_magic_liquid_joylixir" 	input_cell2="cursed_liquid"
+	output_cell1="rock_static_cursed_green" 	output_cell2="rock_static_cursed_green"
+	blob_radius1="40" blob_radius2="40"
+	entity="mods/abyssal_glare/files/materials/conversion/greed_cursed_rock_blob_trap.xml"
+	>
+	</Reaction>
+	
+	<Reaction probability="100"
+	input_cell1="[magic_liquid]" 	input_cell2="abyssal_glare_cursed_lava"
+	output_cell1="abyssal_glare_cursed_lava" 	output_cell2="abyssal_glare_cursed_lava"
+	blob_radius1="40" blob_radius2="40"
+	entity="mods/abyssal_glare/files/materials/conversion/cursed_lava_conversion.xml"
+	>
+	</Reaction>
+	
+	<Reaction probability="100"
+	input_cell1="abyssal_glare_deadly_water" 	input_cell2="air"
+	output_cell1="air" 	output_cell2="air"
+	cosmetic_particle="water"
+	blob_radius1="3" blob_radius2="3"
+	entity="mods/abyssal_glare/files/materials/deadly_rain.xml"
+	>
+	</Reaction>
+
+	<Reaction probability="80"
+	input_cell1="[lava]" 	input_cell2="abyssal_glare_cursed_lava"
+	output_cell1="abyssal_glare_cursed_lava" 	output_cell2="abyssal_glare_cursed_lava"
+	blob_radius1="20" blob_radius2="20"
+	>
+	</Reaction>
+	
+	<Reaction probability="80"
+	input_cell1="[water]" 	input_cell2="abyssal_glare_cursed_lava"
+	output_cell1="rock_static_cursed" 	output_cell2="steam"
+	cosmetic_particle="steam"
+	blob_radius1="5" blob_radius2="3"
+	blob_restrict_to_input_material1="1" 	blob_restrict_to_input_material2="1"
+	>
+	</Reaction>
+	
+	
+<!--Magic Reactions-->
+	
+    <Reaction probability="15"
+	input_cell1="material_confusion" 	input_cell2="abyssal_glare_magic_liquid_sorrowflux"
+	output_cell1="material_confusion" 	output_cell2="material_confusion"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+	
+    <Reaction probability="15"
+	input_cell1="water" 	input_cell2="abyssal_glare_magic_liquid_sorrowflux"
+	output_cell1="water_salt" 	output_cell2="abyssal_glare_magic_liquid_sorrowflux"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+		
+    <Reaction probability="15"
+	input_cell1="material_confusion" 	input_cell2="abyssal_glare_magic_liquid_joylixir"
+	output_cell1="material_confusion" 	output_cell2="material_confusion"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+	
+<!--Other Reactions-->
+  
+ 	<Reaction probability="75"
+  	input_cell1="abyssal_glare_cursed_lava" 	input_cell2="[alchemy]"
+  	output_cell1="abyssal_glare_cursed_lava"	output_cell2="abyssal_glare_cursed_lava" >
+  	</Reaction>
+  	<Reaction probability="100"
+  	input_cell1="abyssal_glare_cursed_lava" 	input_cell2="rock_static_cursed"
+  	output_cell1="rock_static_cursed"	output_cell2="rock_static_cursed" 
+	blob_radius1="5" blob_radius2="5">
+  	</Reaction>
+  
+  	<Reaction probability="100"
+   	input_cell1="abyssal_glare_anti_creepy_liquid" 	input_cell2="creepy_liquid"
+   	output_cell1="abyssal_glare_anti_creepy_liquid" 	output_cell2="abyssal_glare_anti_creepy_liquid" 
+   	blob_radius1="9" blob_radius2="9">
+  	</Reaction>
+  
+<!--About the best I can do without rewriting cheese-->
+<!--I just didn't want to break stuff with cheese.-->
+<!--WENSLEYDALE?!-->
+	<Reaction probability="20"
+	input_cell1="cheese_static" 	input_cell2="[lava]"
+	output_cell1="abyssal_glare_cheese_molten" 		    output_cell2="air"  
+	blob_radius2="3">
+	</Reaction>
+	
+	<Reaction probability="10"
+	input_cell1="abyssal_glare_cheese_molten" 	input_cell2="air"
+	output_cell1="cheese_static" 		    output_cell2="air"  >
+	</Reaction>
+<!--
+This is unused in the base game, so let's add it!
+ Changed the blob radius to be smaller. 3 from 40 and output 1 and 3 to smoke.
+Probability changed to 33.
+This produces a very miniscule amount of healing liquid. Which pools at the bottom.
+-->
+	<Reaction probability="33"
+	input_cell1="magic_liquid_charm" 				input_cell2="[blood]" 	input_cell3="[magic_polymorph]"
+	output_cell1="smoke" 	output_cell2="magic_liquid_hp_regeneration"		output_cell3="smoke" 
+	blob_radius2="3"
+	>
+	</Reaction>
+<!--Reactions 2 Electric Boogaloo-->
+
+
+
+
+
+
+
+</Materials>

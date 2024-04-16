@@ -1,0 +1,39 @@
+<Entity tags="scroll">
+	<Base file="data/entities/items/books/base_book.xml">
+
+		<BookComponent
+		_enabled="0"
+		>
+		</BookComponent>
+
+		<ParticleEmitterComponent 
+		_enabled="0"
+		>
+		</ParticleEmitterComponent>	
+		
+		<PhysicsImageShapeComponent 
+		image_file="data/items_gfx/book_small.png"
+		></PhysicsImageShapeComponent>
+
+		<UIInfoComponent
+			name="$abyssal_glare_booktitle_00"
+			>
+		</UIInfoComponent>
+		
+		<ItemComponent
+			ui_sprite="data/items_gfx/book.png"
+			item_name="$abyssal_glare_booktitle_00"
+			ui_description="$abyssal_glare_bookdesc_00"
+			>
+		</ItemComponent>
+		
+		<AbilityComponent
+			ui_name="$abyssal_glare_booktitle_00"
+			>
+		</AbilityComponent>
+	
+		<SpriteComponent
+		image_file="data/items_gfx/in_hand/book_in_hand.png"
+		></SpriteComponent>
+	</Base>
+</Entity>
