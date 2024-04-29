@@ -79,6 +79,22 @@
 
 
 	-->
+
+
+<!--
+	4/21/2024 - Alright, L9M2 again. Just got done speaking to some folks messing with material types. You know that how Mimic liquid uses [any_liquid]?
+	It's a special tag that will output the input liquid. There's a another one [*] which is a wildcard tag, so ANY material in the game can be used.
+
+	What happens if you use a [tag] as the output? Well it will use a random material as the output that uses that tag. So a [Fire] output will produce a random [fire]
+	This mean... a random [*] material will be used as the output.
+	
+	
+	[*] = Wildcard Material
+	[any_liquid] = Any liquid type.
+
+-->
+
+
 <!--====================================================================-->
 <!--=============================Materials==============================-->
 <!--====================================================================-->
@@ -783,7 +799,7 @@
 	burnable="0"
 	density="2.7182"
 	cell_type="liquid"
-	wang_color="709a63ef"
+	wang_color="69ef939b"
 	generates_smoke="0"
 	liquid_gravity="1.2"
 	liquid_sand="0"
@@ -800,12 +816,12 @@
 	vel.y="-10"
 	vel_random.min_x="-27"
 	vel_random.max_x="50"
-	vel_random.min_y="-69"
-	vel_random.max_y="9"
+	vel_random.min_y="-9"
+	vel_random.max_y="1"
 	lifetime.min="0.0285"
 	lifetime.max="2.35"
-	gravity.x="-100"
-	gravity.y="10"
+	gravity.x="-1"
+	gravity.y="1"
 	render_on_grid="1"
 	draw_as_long="1"
 	friction="7"
@@ -825,16 +841,52 @@
 	</StatusEffects>
 	<Graphics
 	texture_file="mods/abyssal_glare/files/materials_gfx/mat_anxiphasea.png"
-	color="ff313b36"
-	pixel_all_around="ff313b36"
+	color="69ef939b"
+	pixel_all_around="69ef939b"
 	>
 	</Graphics>
 </CellData>
+
+<!--Aleatory: Unique type of magical liquid, turns into a random material upon pouring out. -->
+<CellData
+name="abyssal_glare_magic_liquid_aleatory"
+ui_name="$mat_abyssal_glare_magic_liquid_aleatory"
+  tags="[liquid],[water],[magic_liquid],[impure]"
+burnable="0"
+density="1.1"
+cell_type="liquid"
+wang_color="817D8058"
+generates_smoke="0"
+liquid_gravity="0.8"
+liquid_sand="0"
+gfx_glow="150"
+on_fire="0"
+requires_oxygen="0"
+liquid_stains="1"
+liquid_sprite_stain_shaken_drop_chance="1"
+audio_materialaudio_type="MAGICAL" 
+show_in_creative_mode="1"
+ignore_self_reaction_warning="1"
+>
+<ParticleEffect
+	vel.y="17.14"
+	vel_random.min_y="-100"
+	vel_random.max_y="25.71"
+	lifetime.min="0"
+	gravity.y="-8.57"
+	render_on_grid="1"
+	draw_as_long="1"
+	friction="-3.429"
+	probability="0.0518"
+>
+</ParticleEffect>
+</CellData>
+
 <!--Elysian Powder: Ambrosia like substance that's harmful to the touch, but you get ambrosia when consumed. -->
 <CellData
 	name="abyssal_glare_elysian_powder"
 	ui_name="$mat_abyssal_glare_elysian_powder"
-	tags="[liquid],[water],[magic_liquid]"
+	tags="[solid],[sand_other],[corrodible],[burnable],[alchemy]"
 	burnable="0"
 	density="12.7982"
 	cell_type="liquid"
@@ -907,6 +959,7 @@
 	cold_freezes_to_material="rock_static_cursed"
 	cold_freezes_to_dont_do_reverse_reaction="1"
 	show_in_creative_mode="1"
+	ignore_self_reaction_warning="1"
 	>
 	<ParticleEffect
 		vel.y="-10"
@@ -1152,15 +1205,15 @@
 	</Reaction>
 	
 <!--Other Reactions-->
-  
+<!--[*] = Wildcard Material-->
  	<Reaction probability="75"
-  	input_cell1="abyssal_glare_cursed_lava" 	input_cell2="[alchemy]"
+  	input_cell1="abyssal_glare_cursed_lava" 	input_cell2="[*]"
   	output_cell1="abyssal_glare_cursed_lava"	output_cell2="abyssal_glare_cursed_lava" >
   	</Reaction>
   	<Reaction probability="100"
   	input_cell1="abyssal_glare_cursed_lava" 	input_cell2="rock_static_cursed"
   	output_cell1="rock_static_cursed"	output_cell2="rock_static_cursed" 
-	blob_radius1="5" blob_radius2="5">
+	blob_radius1="9" blob_radius2="9">
   	</Reaction>
   
   	<Reaction probability="100"
@@ -1197,9 +1250,35 @@ This produces a very miniscule amount of healing liquid. Which pools at the bott
 <!--Reactions 2 Electric Boogaloo-->
 
 
+<Reaction probability="100"
+input_cell1="abyssal_glare_magic_liquid_aleatory" 	input_cell2="abyssal_glare_magic_liquid_aleatory"
+output_cell1="[solid]" 		    output_cell2="[liquid]"
+>
+</Reaction>
 
 
+<!--====================================================================-->
+<!--=====================REQUIRED=REACTIONS=============================-->
+<!--====================================================================-->
+<!--
+	These define a reaction that happens when a reaction does not meet the requirement.
+-->
 
+<!--
+<ReqReaction probability="1"
+input_cell1="mushroom_giant_blue" 	input_cell2="air" 
+output_cell1="soil" 				output_cell2="air" >
+</ReqReaction>
+-->
+
+<ReqReaction probability="100"
+input_cell1="abyssal_glare_deadly_water" 	input_cell2="air"
+output_cell1="air" 	output_cell2="air"
+cosmetic_particle="water"
+blob_radius1="3" blob_radius2="3"
+entity="mods/abyssal_glare/files/materials/deadly_rain.xml"
+>
+</ReqReaction>
 
 
 </Materials>

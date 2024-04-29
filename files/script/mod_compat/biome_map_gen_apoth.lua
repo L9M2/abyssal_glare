@@ -4,6 +4,7 @@ dofile_once("mods/abyssal_glare/files/script/enums.lua")
 local portal = MAP_IMAGE_COORDS[1]
 local w, h = BiomeMapGetSize()
 local biomemapimage = {} -- Or whatever the table you want to insert into is
+--While loading times are fairly small, this makes a MASSIVE Table with apotheosis. Nearly 5000+ entries long!
 local color = 0
 
 local bottomh = 8

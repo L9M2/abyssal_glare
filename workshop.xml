@@ -1,0 +1,8 @@
+<Mod
+    name="Abyssal Glare"
+    description=""
+    tags="spells,perks,gameplay,biomes,creatures,alchemy,items,tweaks"
+    dont_upload_folders=".vscode"
+    dont_upload_files=".gitattributes|README.md"
+    >
+</Mod>

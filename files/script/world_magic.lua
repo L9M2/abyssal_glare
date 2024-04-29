@@ -1,8 +1,10 @@
 local nxml = dofile_once("mods/abyssal_glare/files/script/lib/nxml.lua")
+dofile_once("mods/abyssal_glare/files/script/enums.lua")
 
 
 
-
+--dofile_once("mods/abyssal_glare/files/script/enums.lua")
+--names = NAMES[1]
 
 
 
@@ -12,7 +14,7 @@ function replace_with_my_pixel_scenes()
   print("Appending Monolith pixel scenes")
   --Side note here. This is unimplemented. Mainly due to not adding the scenes yet. This is for scenes not tied to a biome and are used for limited spawned scenes.
   --You could fudge it with other lua code, but this ignores ALL biome placement altogether unless you check for it and places it in the game world so even a restart makes the scenes persist and still generate.
-  --Think of it like the Eye Glyphs and Couldron room. They spawn even if you quite and reenter the game and visit the locations.
+  --Think of it like the Eye Glyphs and Couldron room, or the Gourd Room. They spawn even if you quite and reenter the game and visit the locations.
   --[[
   L9M2:
   Well crud.
@@ -30,64 +32,66 @@ function replace_with_my_pixel_scenes()
   --]]
 
 
-  --Here we grab the world size, the idea is if another mod changes the world length, we can grab the length here; otherwise default to the vanilla world length of 35840 pixels
-  --You do not need to create this file, but if another mod changes the world length, they would need to create it and specify how large their world is
-  --local worldsize = ModTextFileGetContent("data/compatibilitydata/worldsize.txt") or 35840
-  --L9M2: Couldn't we just check for the biome map size and multiply by 512? Might be an easier implementation... wait.
-  --PS: Do we even KNOW the biome map size at this point? Need to investigate.
-  --PPS: Crud, this might actually be a problem if this is executed at the wrong time in the init.
-  --PPPS: Well... this isn't the biome map. So we might be able to fudge it a bit if we check after the biome map changes are done.
-  --PPPPS: Fudge Sundae made.
 
-  local w, h = BiomeMapGetSize() --This logic is executed AFTER map gen is finalized. So we should get the final map size.
-  local cell = 512 --This is how big a cell/chunk is
-  --The above is done so we can say how many cells in a certain direction we can do. So we don't have to do too much math. This can be ignored for precise placement.
-  local width=w*cell
-  local height=h*cell
   local appends = {"_pixel_scenes","_pixel_scenes_newgame_plus",}
 
   for k=1, #appends
   do local v = appends[k];
 
-      --Wand Tinkering Crystal guaranteed spawn at Pyramid
+      --bnuy :)
       local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
       local xml = nxml.parse(content)
-      xml:first_of("mBufferedPixelScenes"):add_child(nxml.parse([[
-      <PixelScene DEBUG_RELOAD_ME="0" clean_area_before="0" pos_x="10868" pos_y="-150" skip_biome_checks="1" skip_edge_textures="0"
-          material_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal.png"
-          background_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_background.png"
-          colors_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_visual.png"
+      xml:first_of("mBufferedPixelScenes"):add_child(nxml.parse(table.concat({[[
+      <PixelScene DEBUG_RELOAD_ME="0" clean_area_before="0" pos_x="-16600" pos_y="-6000" skip_biome_checks="1" skip_edge_textures="1"
+          material_filename="mods/abyssal_glare/files/biome_impl/no_material.png"
+          background_filename="]],MODPATH..tostring(NAMES[1].A1)..tostring(NAMES[1].A2),[[.png"
+          colors_filename=""
       ></PixelScene>
-      ]]))
+      ]]})))
       ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
+
+
+
+
+      --Wand Tinkering Crystal guaranteed spawn at Pyramid
+      --local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
+      --local xml = nxml.parse(content)
+      --xml:first_of("mBufferedPixelScenes"):add_child(nxml.parse([[
+      --<PixelScene DEBUG_RELOAD_ME="0" clean_area_before="0" pos_x="10868" pos_y="-150" skip_biome_checks="1" skip_edge_textures="0"
+      --    material_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal.png"
+      --    background_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_background.png"
+      --    colors_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_visual.png"
+      --></PixelScene>
+      --]]))
+      --ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
 
       --Wand Tinkering Crystal guaranteed spawn (PW East)
       --Here we concatoncate the x position of the pixel scene in the main world with the world length, adding to it for east worlds
       --Here in this example. I modified it so it takes hte biome map width, and adds an entire worlds width to it. Shifting over a PW.
-      local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
-      local xml = nxml.parse(content)
-      xml:first_of("mBufferedPixelScenes"):add_child(nxml.parse(table.concat({[[
-      <PixelScene DEBUG_RELOAD_ME="0" clean_area_before="0" pos_x="]],(10868 + width),[[" pos_y="-150" skip_biome_checks="1" skip_edge_textures="0"
-          material_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal.png"
-          background_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_background.png"
-          colors_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_visual.png"
-      ></PixelScene>
-      ]]})))
-      ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
+      --local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
+      --local xml = nxml.parse(content)
+      --xml:first_of("mBufferedPixelScenes"):add_child(nxml.parse(table.concat({[[
+      --<PixelScene DEBUG_RELOAD_ME="0" clean_area_before="0" pos_x="]],(10868 + width),[[" pos_y="-150" skip_biome_checks="1" skip_edge_textures="0"
+      --    material_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal.png"
+      --    background_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_background.png"
+      --    colors_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_visual.png"
+      --></PixelScene>
+      --]]})))
+      --ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
 
       --Wand Tinkering Crystal guaranteed spawn (PW West)
       --And subtracing it for west worlds
       --We also use table.concat here because normal .. concats are famously slow
-      local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
-      local xml = nxml.parse(content)
-      xml:first_of("mBufferedPixelScenes"):add_child(nxml.parse(table.concat({[[
-      <PixelScene DEBUG_RELOAD_ME="0" clean_area_before="0" pos_x="]],(10868 - width),[[" pos_y="-150" skip_biome_checks="1" skip_edge_textures="0"
-          material_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal.png"
-          background_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_background.png"
-          colors_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_visual.png"
-      ></PixelScene>
-      ]]})))
-      ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
+      --local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
+      --local xml = nxml.parse(content)
+      --xml:first_of("mBufferedPixelScenes"):add_child(nxml.parse(table.concat({[[
+      --<PixelScene DEBUG_RELOAD_ME="0" clean_area_before="0" pos_x="]],(10868 - width),[[" pos_y="-150" skip_biome_checks="1" skip_edge_textures="0"
+      --    material_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal.png"
+      --    background_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_background.png"
+      --    colors_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_visual.png"
+      --></PixelScene>
+      --]]})))
+      --ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
 
   end
 
@@ -176,13 +180,23 @@ if ModIsEnabled("raksa") then
 	Abyssal_Glare_YOffset = 1
 	if Abyssal_Glare_YOffset == 1 then
     --No Changes. It wouldn't make sense to.
+	  print("ABYSSAL GLARE:Vanilla biome offset unchanged.")
     biomes_xml.attr.biome_offset_y = biomes_xml.attr.biome_offset_y
 	end
 end
 if ModIsEnabled("nightmare") then
   Abyssal_Glare_YOffset = 1
 	if Abyssal_Glare_YOffset == 1 then
-    --No Changes. It wouldn't make sense to.
+    --Yeah it's the same as vanilla. For now.
+	  print("ABYSSAL GLARE:Vanilla biome offset unchanged.")
+    biomes_xml.attr.biome_offset_y = biomes_xml.attr.biome_offset_y
+	end
+end
+if ModIsEnabled("ethereal_convergence") then
+  Abyssal_Glare_YOffset = 1
+	if Abyssal_Glare_YOffset == 1 then
+    --Yeah it's the same as vanilla. For now.
+	  print("ABYSSAL GLARE:Vanilla biome offset unchanged.")
     biomes_xml.attr.biome_offset_y = biomes_xml.attr.biome_offset_y
 	end
 end

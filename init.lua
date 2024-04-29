@@ -54,6 +54,8 @@ append_custom_biomes()
 --This has to be done BEFORE the biome map is generated. The offset will change if we do it after map gen, but doesn't actually change in-game.
 adjust_y_offset()
 
+
+replace_with_my_pixel_scenes()
 --Extra Functions Regarding Biome Map Compatibility.
 --if Apotheosis is enabled. We gotta add our biomemap to theirs instead of vanilla.
 local Abyssal_Glare_ModdedMap = 0
@@ -263,7 +265,13 @@ end
 	ConvertEverythingToGold( "silver", "silver_static" )
 	EntityLoad("mods/abyssal_glare/files/entities/audio/snd_fate_card.xml", 0, 0)
 	EntityLoad("mods/abyssal_glare/files/entities/items/books/book_mystery_00.xml", 0, 0)
+	EntityLoad("mods/abyssal_glare/files/entities/items/pickups/ampule.xml", 0, -10)
 	EntityLoad("data/entities/player.xml", 120, -120)
+	EntityLoad("mods/abyssal_glare/files/entities/npc/test.xml", 155, -120)
+	EntityLoad("mods/abyssal_glare/files/entities/npc/dg.xml", 155, -120)
+	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/no_material.png", "", 0, 0, "mods/abyssal_glare/bnuy.png", true )
+	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_mat.png", "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple.png", 1024, -1024, "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_background.png", true )
+		
 --]]
 
 

@@ -72,7 +72,7 @@ function fate_card_effect( entity_item, entity_who_picked, name )
 			end
 			if not gold then
 			--Bad News: Summons a circle of water...
-			EntityLoad("data/entities/projectiles/circle_water.xml", x, y-12)
+			--EntityLoad("data/entities/projectiles/circle_water.xml", x, y-12)
 			--Bad News: Summons a thundercloud...
 			EntityLoad("data/entities/projectiles/deck/cloud_thunder.xml", x, y-20)
 			end	

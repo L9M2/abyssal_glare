@@ -14,7 +14,24 @@ MAP_IMAGE_COORDS = {
   {x=-10,y=10} --Pillar Spawn
 }
 
+--
+-- NAMES
+--
+NAMES = {
+  {A1 = "bn", A2 = "uy"},
+  {B1 = "monolith", B2 = "abyssal_glare"}
 
+
+}
+--
+--dofile_once("mods/abyssal_glare/files/script/enums.lua")
+--names = NAMES[1]
+--names.A1
+--MOD PATH
+MODPATH = "mods/abyssal_glare/"
+MODFILESPATH = "mods/abyssal_glare/files/"
+MODDATAPATH = "mods/abyssal_glare/data/"
+DATA = "data/"
 --
 -- OTHER
 --

@@ -445,6 +445,55 @@ local a = {
 			c.damage_critical_chance = c.damage_critical_chance + 1
 		end,
 	},
+	{
+		id          = "TEMPORARY_CIRCLE",
+		name 		= "$abyssal_glare_action_temporary_circle",
+		description = "$abyssal_glare_action_desc_temporary_circle",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/temporary_circle.png",
+		related_projectiles	= {"mods/abyssal_glare/files/entities/projectiles/deck/temporary_circle.xml"},
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "0,1,2,4,5", -- WALL_SQUARE
+		spawn_probability                 = "0.1,0.1,0.3,0.4,0.2", -- WALL_SQUARE
+		price = 100,
+		mana = 40,
+		max_uses = 20,
+		action 		= function()
+			add_projectile("mods/abyssal_glare/files/entities/projectiles/deck/temporary_circle.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 90
+		end,
+	},
+	{
+		id          = "TEMPORARY_BALL", --physics ball based off of the temporary barriers.
+		name 		= "$abyssal_glare_action_temporary_ball",
+		description = "$abyssal_glare_action_desc_temporary_ball",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/temporary_ball.png",
+		related_projectiles	= {"mods/abyssal_glare/files/entities/projectiles/deck/temporary_ball.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "0,1,2,4,5", -- WALL_SQUARE
+		spawn_probability                 = "0.1,0.1,0.3,0.4,0.2", -- WALL_SQUARE
+		price = 100,
+		mana = 40,
+		max_uses = 20,
+		action 		= function()
+			add_projectile("mods/abyssal_glare/files/entities/projectiles/deck/temporary_ball.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 90
+		end,
+	},
+	{
+		id          = "NEGATIVE_PICK",
+		name 		= "Negative Draw",
+		description = "Draws -2 cards",
+		sprite 		= "data/ui_gfx/gun_actions/t_shape.png",
+		type 		= ACTION_TYPE_DRAW_MANY,
+		spawn_level                       = "1,2,3,4,5",
+		spawn_probability                 = "0.4,0.4,0.3,0.2,0.1", 
+		price = 40,
+		mana = 4,
+		--max_uses = 100,
+		action 		= function()
+			draw_actions(-2, true)
+		end,
+	},
 
 
 

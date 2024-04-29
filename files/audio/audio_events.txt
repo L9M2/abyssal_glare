@@ -15,6 +15,7 @@
 {9e5f6674-ecca-4cb3-9e39-050604be24e9} bus:/music_reverb
 {8340afee-1bfb-481c-8b65-a1721703356c} bus:/reverb
 {40bdfd79-5dfd-4303-8a71-0792c637c380} bus:/ui
+{a15ecdc8-e4b6-4095-b9ae-130303196c94} event:/enemies/dg/create
 {b39ec8ee-a4da-4406-b670-867bf0e08d31} event:/fate_cards/cards/9
 {4c35e251-a293-43db-a2a1-c43113fb2b3a} event:/fate_cards/cards/empress
 {153baded-feb0-4b35-a0d3-9b55a32d03a3} event:/fate_cards/cards/fate_card_1
