@@ -1,4 +1,11 @@
 <PixelScenes>
   <PixelSceneFiles>
   </PixelSceneFiles>
+  <mBufferedPixelScenes>
+    <PixelScene DEBUG_RELOAD_ME="0" clean_area_before="0" pos_x="42" pos_y="-250" skip_biome_checks="1" skip_edge_textures="0"
+    material_filename="mods/abyssal_glare/files/biome_impl/abyss/spawn.png"
+    background_filename=""
+    colors_filename="mods/abyssal_glare/files/biome_impl/abyss/spawn_visual.png"
+    ></PixelScene>
+  </mBufferedPixelScenes>
 </PixelScenes>

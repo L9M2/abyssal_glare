@@ -99,7 +99,41 @@
 <!--=============================Materials==============================-->
 <!--====================================================================-->
 
-
+<CellData
+     name="abyssal_glare_testing_material"
+    ui_name="TEST MATERIAL"
+    wang_color="ff9afe46"
+	burnable="0"  
+	density="-10"  
+	temperature_of_fire="150"
+	stickyness="0.5"
+	cell_type="liquid"
+	liquid_gravity="-50"
+	liquid_static="0" 
+	liquid_sand="0"  
+	liquid_sticks_to_ceiling="1"
+	liquid_damping="0.5"
+	liquid_slime="0"
+	liquid_stains="2"
+	liquid_flow_speed="-5"
+	gfx_glow="10" 
+	on_fire="0"  
+	requires_oxygen="0"
+	audio_physics_material_event="slime"
+	audio_physics_material_wall="slime"
+	audio_physics_material_solid="slime" 
+	show_in_creative_mode="1"
+    >
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="INGESTION_ON_FIRE" amount="0.4" />
+		</Ingestion>
+	</StatusEffects>
+	
+  	<Graphics
+	color="889afe46" >
+    </Graphics>
+</CellData>
 	
 <CellDataChild
 	_parent="wood_static"
@@ -399,6 +433,40 @@
 	color="880d0913" >
     </Graphics>
 </CellData>
+
+<CellDataChild
+_parent="abyssal_glare_abyssal_crystal"
+_inherit_reactions="1"
+name="abyssal_glare_abyssal_crystal_box2d"
+ui_name="$mat_ice_glass"
+tags="[box2d],[static],[solid],[matter_eater_ignore_list],[indestructible]"
+burnable="0"
+density="6"
+cell_type="solid"
+wang_color="ff1d3999"
+generates_smoke="0"
+requires_oxygen="0"
+temperature_of_fire="10"
+solid_static_type="0"
+solid_collide_with_self="0"
+solid_on_sleep_convert="1"
+solid_friction="0.05"
+slippery="0"
+gfx_glow="0"
+show_in_creative_mode="1"
+durability="27"
+on_fire="0"
+hp="399999" 
+platform_type="1"
+audio_physics_material_event="rock"
+audio_physics_material_wall="rock"
+audio_physics_material_solid="rock"
+>
+<Graphics
+texture_file="mods/abyssal_glare/files/materials_gfx/abyssal_crystal.png"
+color="ff0d0911" >
+</Graphics>
+</CellDataChild>
 
 <!--====================================================================-->
 <!--===============================FOOD=================================-->
@@ -1050,6 +1118,158 @@ ignore_self_reaction_warning="1"
 	</Graphics>
 </CellData>
   
+
+<!--====================================================================-->
+<!--==============================GAS==================================-->
+<!--====================================================================-->
+
+<CellData
+     name="abyssal_glare_abyssal_diov"
+    ui_name="$mat_abyssal_glare_abyssal_void"
+    wang_color="ffd1dece"
+	burnable="0"  
+	density="27"  
+	generates_smoke="0"  
+	temperature_of_fire="150"
+	stickyness="1.7"
+	solid_friction="1.5"
+	gas_speed="120"
+	gas_upwards_speed="99"
+	gas_downwards_speed="6"
+	gas_horizontal_speed="120"
+	cell_type="gas"
+	gfx_glow="1" 
+	on_fire="0"  
+	requires_oxygen="0"
+	audio_physics_material_event="slime"
+	audio_physics_material_wall="slime"
+	audio_physics_material_solid="slime" 
+	show_in_creative_mode="1"
+    >
+	<ParticleEffect
+	vel.y="100"
+	vel_random.min_x="-27"
+	vel_random.max_x="27"
+	vel_random.min_y="-27"
+	vel_random.max_y="27"
+	lifetime.min="0.0285"
+	lifetime.max="4.35"
+	gravity.x="-10"
+	gravity.y="10"
+	render_on_grid="1"
+	draw_as_long="1"
+	friction="7"
+	probability="0.001"
+	count.min="2"
+	count.max="200"
+	>
+	</ParticleEffect>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="FOOD_POISONING" amount="0.1" />
+		</Ingestion>
+	</StatusEffects>
+	
+  	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/abyssal_void.png"
+	fire_colors_index="2" 
+	color="88d1dece" >
+    </Graphics>
+</CellData>
+
+<CellData
+     name="abyssal_glare_gnorp_shard"
+    ui_name="Shard"
+    wang_color="ffd14ece"
+	burnable="0"  
+	density="3"  
+	generates_smoke="0"  
+	temperature_of_fire="150"
+	stickyness="1.7"
+	solid_friction="1.5"
+	gas_speed="-50"
+	gas_upwards_speed="0"
+	gas_horizontal_speed="0"
+	cell_type="gas"
+	gfx_glow="100" 
+	on_fire="0"  
+	requires_oxygen="0"
+	audio_physics_material_event="slime"
+	audio_physics_material_wall="slime"
+	audio_physics_material_solid="slime" 
+	show_in_creative_mode="1"
+    >
+	<ParticleEffect
+	vel.y="-10"
+	vel_random.min_x="-4"
+	vel_random.max_x="4"
+	vel_random.min_y="10"
+	vel_random.max_y="30"
+	lifetime.min="0.0285"
+	lifetime.max="2.35"
+	gravity.x="-1"
+	gravity.y="1"
+	render_on_grid="1"
+	draw_as_long="1"
+	friction="7"
+	probability="0.001"
+	count.min="2"
+	count.max="50"
+	>
+	</ParticleEffect>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="INGESTION_ON_FIRE" amount="0.4" />
+		</Ingestion>
+	</StatusEffects>
+	
+  	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/abyssal_diov.png"
+	fire_colors_index="2" 
+	color="88d14ece" >
+    </Graphics>
+</CellData>
+
+<CellData
+     name="abyssal_glare_hot_gas"
+    ui_name="$mat_abyssal_glare_abyssal_void"
+    wang_color="fff2c224"
+	burnable="0"  
+	density="27"  
+	generates_smoke="0"  
+	liquid_gravity="0"  
+	liquid_sand="0"  
+	liquid_sticks_to_ceiling="80"
+	liquid_slime="1"
+	liquid_stains="2"
+	liquid_flow_speed="0.01"
+	temperature_of_fire="150"
+	stickyness="1.7"
+	solid_friction="1.5"
+	gas_speed="50"
+	gas_upwards_speed="50"
+	gas_horizontal_speed="50"
+	cell_type="gas"
+	on_fire="1"  
+	fire_hp="-1"
+	requires_oxygen="0"
+	audio_physics_material_event="slime"
+	audio_physics_material_wall="slime"
+	audio_physics_material_solid="slime" 
+	show_in_creative_mode="1"
+    >
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="INGESTION_ON_FIRE" amount="0.4" />
+		</Ingestion>
+	</StatusEffects>
+	
+  	<Graphics
+	texture_file="mods/abyssal_glare/files/materials_gfx/abyssal_fire.png"
+	fire_colors_index="3" 
+	color="88f2c224" >
+    </Graphics>
+</CellData>
 <!--====================================================================-->
 <!--==============================REACTIONS=============================-->
 <!--====================================================================-->

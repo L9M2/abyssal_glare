@@ -100,7 +100,7 @@ end
 
 if 	Abyssal_Glare_ModdedMap == 0 then
 	--Nolla Games. Thank you for implementing this. I was worried I was gonna have to overwrite the vanilla image with a lua file, but you beat me to it.
-	print("ABYSSAL GLARE:No modded biome map detected. This is either an error or we're playing with the vanilla biome map.")
+	print("ABYSSAL GLARE:No modded biome map detected. This is either an unsupported map or we're playing with the vanilla biome map.")
 	print("ABYSSAL GLARE:Attempting to Stitch Abysal Glare map changes...")
 	ModLuaFileAppend( "data/scripts/biome_map.lua", "mods/abyssal_glare/files/script/mod_compat/biome_map_gen_vanilla.lua")
 end
@@ -267,13 +267,29 @@ end
 	EntityLoad("mods/abyssal_glare/files/entities/items/books/book_mystery_00.xml", 0, 0)
 	EntityLoad("mods/abyssal_glare/files/entities/items/pickups/ampule.xml", 0, -10)
 	EntityLoad("data/entities/player.xml", 120, -120)
+	EntityLoad("mods/abyssal_glare/files/entities/npc/test.xml", 120, -120)
+	EntityLoad("mods/abyssal_glare/files/entities/npc/ag/skyshimmer.xml", 120, -120)
+	EntityLoad("mods/abyssal_glare/files/entities/npc/test.xml", 0, 0)
 	EntityLoad("mods/abyssal_glare/files/entities/npc/test.xml", 155, -120)
 	EntityLoad("mods/abyssal_glare/files/entities/npc/dg.xml", 155, -120)
 	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/no_material.png", "", 0, 0, "mods/abyssal_glare/bnuy.png", true )
 	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_mat.png", "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple.png", 1024, -1024, "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_background.png", true )
 		
---]]
 
+
+	local players = EntityGetWithTag("player_unit")
+	for k=1,#players
+	do local v = players[k]
+		EntitySetTransform(v,240,-100)
+	end
+
+  	BiomeMapLoad_KeepPlayer("data/biome_impl/biome_map_demo.png","data/biome/_pixel_scenes.xml")
+  	BiomeMapLoad_KeepPlayer("data/biome_impl/biome_map_ea.png","data/biome/_pixel_scenes.xml")
+  	BiomeMapLoad_KeepPlayer("data/biome_impl/biome_map_boss.png","data/biome/_pixel_scenes.xml")
+  	BiomeMapLoad_KeepPlayer("data/biome_impl/biome_map_crypt.png","data/biome/_pixel_scenes.xml")
+  	BiomeMapLoad_KeepPlayer("data/biome_impl/biome_map_lab.png","data/biome/_pixel_scenes.xml")
+  	BiomeMapLoad_KeepPlayer("data/biome_impl/biome_map_metagame.png","data/biome/_pixel_scenes.xml")
+--]]
 
 
 

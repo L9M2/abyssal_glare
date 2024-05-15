@@ -34,8 +34,8 @@ end
 
 function spawn_portal(x, y)
 	--EntityLoad( "data/entities/items/pickup/essence_air.xml", x, y )
-	--spawn_material_checker( x - 198, y - 11, "void_liquid", "data/scripts/biomes/orbrooms/orbroom_shared.lua", "mods/abyssal_glare/files/entities/portal_abyssal_glare.xml", x, y+32)
-	spawn_material_checker( x - 198, y - 11, "abyssal_glare_abyssal_sand", "data/scripts/biomes/orbrooms/orbroom_shared.lua", "mods/abyssal_glare/files/entities/portal_abyssal_glare.xml", x, y+32)
+	spawn_material_checker( x - 198, y - 11, "void_liquid", "data/scripts/biomes/orbrooms/orbroom_shared.lua", "mods/abyssal_glare/files/entities/portal_abyssal_glare.xml", x, y+32)
+	--spawn_material_checker( x - 198, y - 11, "abyssal_glare_abyssal_sand", "data/scripts/biomes/orbrooms/orbroom_shared.lua", "mods/abyssal_glare/files/entities/portal_abyssal_glare.xml", x, y+32)
 	
 	--EntityLoad("mods/abyssal_glare/files/entities/portal_abyssal_glare.xml", x, y+32)
 	spawn_material_checker( x + 198, y - 11, "gold", "data/scripts/biomes/orbrooms/orbroom_shared.lua", "mods/abyssal_glare/files/particles/image_emitters/glyphs/09_09.xml", x, y - 125 )

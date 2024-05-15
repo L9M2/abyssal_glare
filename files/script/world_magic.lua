@@ -38,7 +38,6 @@ function replace_with_my_pixel_scenes()
   for k=1, #appends
   do local v = appends[k];
 
-      --bnuy :)
       local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
       local xml = nxml.parse(content)
       xml:first_of("mBufferedPixelScenes"):add_child(nxml.parse(table.concat({[[
@@ -49,6 +48,25 @@ function replace_with_my_pixel_scenes()
       ></PixelScene>
       ]]})))
       ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
+
+      local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
+      local xml = nxml.parse(content)
+      xml:first_of("PixelSceneFiles"):add_child(nxml.parse([[
+        <File>mods/abyssal_glare/files/biome_impl/spliced/meteorite.xml</File>
+        ]]))
+      ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
+
+      --local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
+      --local xml = nxml.parse(content)
+      --xml:first_of("PixelSceneFiles"):add_child(nxml.parse([[
+      --  <PixelScene DEBUG_RELOAD_ME="0" clean_area_before="0" pos_x="10868" pos_y="-150" skip_biome_checks="1" skip_edge_textures="0"
+      --    material_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal.png"
+      --    background_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_background.png"
+      --    colors_filename="mods/Apotheosis/files/pixel_scenes/pyramid_wand_crystal/pyramid_wand_crystal_visual.png"
+      --></PixelScene>
+      --  ]]))
+      --ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
+
 
 
 

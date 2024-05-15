@@ -480,21 +480,44 @@ local a = {
 		end,
 	},
 	{
-		id          = "NEGATIVE_PICK",
-		name 		= "Negative Draw",
-		description = "Draws -2 cards",
-		sprite 		= "data/ui_gfx/gun_actions/t_shape.png",
-		type 		= ACTION_TYPE_DRAW_MANY,
-		spawn_level                       = "1,2,3,4,5",
-		spawn_probability                 = "0.4,0.4,0.3,0.2,0.1", 
-		price = 40,
-		mana = 4,
+		id          = "CIRCLE_RAINBOW",
+		name 		= "$abyssal_glare_action_circle_rainbow",
+		description = "$abyssal_glare_action_desc_circle_rainbow",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/circle_rainbow.png",
+		type 		= ACTION_TYPE_MATERIAL,
+		spawn_level                       = "1",
+		spawn_probability                 = "0.001", 
+		related_projectiles	= {"mods/abyssal_glare/files/entities/projectiles/deck/circle_rainbow.xml"},
+		price = 170,
+		mana = 20,
+		max_uses = 15,
 		--max_uses = 100,
 		action 		= function()
-			draw_actions(-2, true)
+			add_projectile("mods/abyssal_glare/files/entities/projectiles/deck/circle_rainbow.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 20
 		end,
 	},
-
+	{
+		id          = "BURST_RANDOM",
+		name 		= "$abyssal_glare_action_burst_random",
+		description = "$abyssal_glare_action_desc_burst_random",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/burst_random.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/burst_4_unidentified.png",
+		spawn_requires_flag = "card_unlocked_musicbox",
+		type 		= ACTION_TYPE_DRAW_MANY,
+		spawn_level                       = "5,6,10", -- BURST_4
+		spawn_probability                 = "0.1,0.1,0.5", -- BURST_4
+		price = 500,
+		mana = 50,
+		max_uses = 30,
+		action 		= function()
+			SetRandomSeed(x,y)
+			local randeck = Random(1,#deck)
+			if ( #deck > 0 ) then
+				draw_actions( randeck, true )
+			end
+		end,
+	},
 
 
 
@@ -504,6 +527,30 @@ for i,v in ipairs(a) do
 	v.id = "ABYSSAL_GLARE_" .. v.id
     table.insert(actions, v)
 end
+
+--[[
+--This is a spell that will give the next spell power based on how many are discarded.
+	{
+		id          = "DISCARDED",
+		name 		= "$abyssal_glare_action_discarded",
+		description = "$abyssal_glare_action_desc_discarded",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/discarded.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/burst_4_unidentified.png",
+		spawn_requires_flag = "card_unlocked_musicbox",
+		type 		= ACTION_TYPE_DRAW_MANY,
+		spawn_level                       = "5,6,10", -- BURST_4
+		spawn_probability                 = "0.1,0.1,0.5", -- BURST_4
+		price = 500,
+		mana = 50,
+		max_uses = 30,
+		action 		= function()
+			local randspell = Random(1,#deck)
+			if ( #deck > 0 ) then
+				draw_actions( #deck, true )
+			end
+		end,
+	},
+]]
 	
 --[[
 	If it wasn't obvious, Noita uses a naming schema similar to a card game. Terminology and mechanics are referenced a ton in a card game style. This is why spells are called cards internally since we are dealing with what the game calls them in our wand builds.

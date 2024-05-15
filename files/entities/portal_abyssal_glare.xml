@@ -91,7 +91,7 @@
   ></CollisionTriggerComponent>
 
   <LuaComponent
-    script_collision_trigger_hit="mods/abyssal_glare/files/entities/portal_abyssal_glare.lua"
+    script_collision_trigger_hit="mods/abyssal_glare/files/script/entities/portal_abyssal_glare.lua"
     execute_every_n_frame="1"
     execute_times="1"
   ></LuaComponent>

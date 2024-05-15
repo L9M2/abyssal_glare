@@ -1,0 +1,85 @@
+<Entity name="$animal_bat">
+  
+	<Base file="data/entities/base_enemy_flying.xml" >
+		<ItemChestComponent level="2" > </ItemChestComponent>
+
+		<AnimalAIComponent
+			attack_ranged_enabled="0"
+			attack_dash_enabled="1"
+			needs_food="0"
+			can_fly="1">
+		</AnimalAIComponent>
+
+		<DamageModelComponent
+            hp="1"
+            ragdoll_filenames_file="mods/abyssal_glare/files/ragdolls/ag/skyshimmer/filenames.txt"
+			ragdoll_material="abyssal_glare_abyssal_crystal_box2d"
+			blood_material="abyssal_glare_abyssal_sand"
+			blood_spray_material="abyssal_glare_abyssal_sand"
+			blood_sprite_directional="mods/abyssal_glare/files/particles/bloodsplatters/black/bloodsplatter_directional_$[1-3].xml"
+			blood_sprite_large="mods/abyssal_glare/files/particles/bloodsplatters/black/bloodsplatter_$[1-3].xml"
+			>
+		</DamageModelComponent>
+
+		<PathFindingComponent
+			can_fly="1" 
+			can_walk="0"
+			can_jump="0"
+			>
+		</PathFindingComponent>
+
+		<SpriteComponent 
+			image_file="mods/abyssal_glare/files/enemies_gfx/ag/skyshimmer.xml" 
+			offset_x="0"
+			offset_y="0">
+		</SpriteComponent>   
+		
+		<GenomeDataComponent 
+			herd_id="bat"
+			food_chain_rank="9"
+			is_predator="1" >
+		</GenomeDataComponent>
+
+		<HitboxComponent 
+			_enabled="1" 
+			aabb_min_x="-4.0" 
+			aabb_max_x="4.0" 
+			aabb_min_y="-9" 
+			aabb_max_y="1" 
+			is_enemy="1" 
+			is_item="0" 
+			is_player="0" >
+		</HitboxComponent>
+
+		<CharacterDataComponent 
+			_enabled="1" 
+			climb_over_y="4" 
+			collision_aabb_min_x="-4.0" 
+			collision_aabb_max_x="4.0" 
+			collision_aabb_min_y="-10" 
+			collision_aabb_max_y="0" 
+			mass="0.6"
+			>
+	    </CharacterDataComponent>
+
+	</Base>
+	
+	<LightComponent
+		_enabled="1" 
+		r="60"
+		g="30"
+		b="40"
+		radius="48" >
+	</LightComponent>
+
+	<AudioComponent
+		file="data/audio/Desktop/animals.bank"
+		event_root="animals/bat" >
+	</AudioComponent>
+
+	<AudioComponent
+		file="data/audio/Desktop/animals.bank"
+		event_root="animals/wing_flap_skin" >
+	</AudioComponent>
+
+</Entity>

@@ -1,0 +1,24 @@
+<PixelScenes>
+
+  <mBufferedPixelScenes>
+
+    <PixelScene background_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/0_background.png" colors_filename="" material_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/0.plz" pos_x="10752" pos_y="-26112" skip_biome_checks="1" >
+
+    </PixelScene>
+
+    <PixelScene background_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/1_background.png" colors_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/1_visual.plz" material_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/1.plz" pos_x="10770" pos_y="-25600" skip_biome_checks="1" >
+
+    </PixelScene>
+
+    <PixelScene background_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/2_background.png" colors_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/2_visual.plz" material_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/2.plz" pos_x="11264" pos_y="-26022" skip_biome_checks="1" >
+
+    </PixelScene>
+
+    <PixelScene background_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/3_background.png" colors_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/3_visual.plz" material_filename="mods/abyssal_glare/files/biome_impl/spliced/meteorite/3.plz" pos_x="11264" pos_y="-25600" skip_biome_checks="1" >
+
+    </PixelScene>
+
+    <PixelScene pos_x="10888" pos_y="-25347" just_load_an_entity="mods/abyssal_glare/files/entities/items/books/book_mystery_01.xml" />
+  </mBufferedPixelScenes>
+
+</PixelScenes>

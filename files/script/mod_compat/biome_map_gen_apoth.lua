@@ -42,6 +42,7 @@ for y=0,h do
 	table.remove(biomemapimage, 1)
 	end
 end
+biomemapimage = {}
 --print("ABYSSAL GLARE:Restored map.")
 --This extends the bottom of the old map downward.
 --You could try this in the upward direction, but keep in mind the origin of the world is based around the top side of the map.

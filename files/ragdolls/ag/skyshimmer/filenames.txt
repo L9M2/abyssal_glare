@@ -1,0 +1,3 @@
+mods/abyssal_glare/files/ragdolls/ag/skyshimmer/torso.png
+mods/abyssal_glare/files/ragdolls/ag/skyshimmer/wing1.png
+mods/abyssal_glare/files/ragdolls/ag/skyshimmer/wing2.png
