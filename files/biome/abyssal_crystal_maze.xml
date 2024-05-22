@@ -39,7 +39,7 @@
 
   </Topology>
 
-  <!------------ MATERIALS -------------------->
+  <!--MATERIALS -->
 
   <Materials 
     name="solid_wall" 

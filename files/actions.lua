@@ -183,7 +183,7 @@ local a = {
 			c.screenshake = c.screenshake + 10.5
 			c.damage_critical_chance = c.damage_critical_chance + 5
 			c.fire_rate_wait = c.fire_rate_wait + 100
-			c.spread_degrees = c.spread_degrees + 30
+			c.spread_degrees = c.spread_degrees + 30 + #actions
 		end,
 	},
 	{
@@ -253,23 +253,6 @@ local a = {
 			c.game_effect_entities = c.game_effect_entities .. "data/entities/misc/effect_polymorph.xml,"
 			c.extra_entities = c.extra_entities .. "data/entities/particles/polymorph.xml,"
 			-- c.extra_entities = c.extra_entities .. "data/entities/particles/freeze_charge.xml," --Was already commented out.
-		end,
-	},
-	{
-		id          = "THUNDERBALL", --Unused? Readded. If going by name, this might be what Ukko uses.
-		name 		= "Thunder charge",
-		description = "A projectile with immense stored electricity.",
-		sprite 		= "data/ui_gfx/gun_actions/thunderball.png",
-		type 		= ACTION_TYPE_PROJECTILE,
-		spawn_level                       = "0,1,2,3,4,5,6,7,8,9,10,11", -- THUNDERBALL
-		spawn_probability                        = "1,1,1,1,1,1,1,1,1,1,1,1", -- THUNDERBALL
-		price = 150,
-		mana = 120,
-		max_uses    = 10, 
-		custom_xml_file = "data/entities/misc/custom_cards/thunderball.xml",
-		action 		= function()
-			add_projectile("data/entities/projectiles/thunderball.xml")
-			current_reload_time = current_reload_time + 120
 		end,
 	},
 	{
@@ -503,7 +486,6 @@ local a = {
 		description = "$abyssal_glare_action_desc_burst_random",
 		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/burst_random.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/burst_4_unidentified.png",
-		spawn_requires_flag = "card_unlocked_musicbox",
 		type 		= ACTION_TYPE_DRAW_MANY,
 		spawn_level                       = "5,6,10", -- BURST_4
 		spawn_probability                 = "0.1,0.1,0.5", -- BURST_4
@@ -518,8 +500,106 @@ local a = {
 			end
 		end,
 	},
-
-
+	{
+		id          = "MINI_NUKE",
+		name 		= "$action_nuke",
+		description = "$actiondesc_nuke",
+		spawn_requires_flag = "card_unlocked_nuke",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/mini_nuke.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/nuke_unidentified.png",
+		related_projectiles	= {"mods/abyssal_glare/files/entities/misc/spell_card_effect/mini_nuke.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "1,5,6,10", -- NUKE
+		spawn_probability                 = "0.3,1,1,0.2", -- NUKE
+		price = 200,
+		mana = 100,
+		max_uses    = 3,
+		custom_xml_file = "mods/abyssal_glare/files/entities/projectiles/deck/mini_nuke.xml",
+		action 		= function()
+			add_projectile("mods/abyssal_glare/files/entities/projectiles/deck/mini_nuke.xml")
+			c.fire_rate_wait = 10
+			c.speed_multiplier = c.speed_multiplier * 0.75
+			c.material = "fire"
+			c.material_amount = c.material_amount + 30
+			c.ragdoll_fx = 2
+			c.gore_particles = c.gore_particles + 10
+			c.screenshake = c.screenshake + 10.5
+			current_reload_time = current_reload_time + 300
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 150.0
+			
+			if ( c.speed_multiplier >= 20 ) then
+				c.speed_multiplier = math.min( c.speed_multiplier, 20 )
+			elseif ( c.speed_multiplier < 0 ) then
+				c.speed_multiplier = 0
+			end
+		end,
+	},
+	{
+		id          = "ANTIMATTER_BOMB",
+		name 		= "$action_nuke",
+		description = "$actiondesc_nuke",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/antimatter_bomb.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/nuke_unidentified.png",
+		related_projectiles	= {"mods/abyssal_glare/files/entities/misc/spell_card_effect/antimatter_bomb.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "1,5,6,10", -- NUKE
+		spawn_probability                 = "0.3,1,1,0.2", -- NUKE
+		price = 200,
+		mana = 100,
+		max_uses    = 3,
+		--custom_xml_file = "mods/abyssal_glare/files/entities/projectiles/deck/mini_nuke.xml",
+		action 		= function()
+			add_projectile("mods/abyssal_glare/files/entities/projectiles/deck/antimatter_bomb.xml")
+			c.fire_rate_wait = 10
+			c.speed_multiplier = c.speed_multiplier * 0.75
+			c.material = "fire"
+			c.material_amount = c.material_amount + 30
+			c.ragdoll_fx = 2
+			c.gore_particles = c.gore_particles + 10
+			c.screenshake = c.screenshake + 10.5
+			current_reload_time = current_reload_time + 300
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 150.0
+			
+			if ( c.speed_multiplier >= 20 ) then
+				c.speed_multiplier = math.min( c.speed_multiplier, 20 )
+			elseif ( c.speed_multiplier < 0 ) then
+				c.speed_multiplier = 0
+			end
+		end,
+	},
+	{
+		id          = "ANTIMATTER_BOMB_GIGA",
+		name 		= "$action_nuke",
+		description = "$actiondesc_nuke",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/antimatter_bomb_giga.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/nuke_unidentified.png",
+		related_projectiles	= {"mods/abyssal_glare/files/entities/misc/spell_card_effect/antimatter_bomb_giga.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "1,5,6,10", -- NUKE
+		spawn_probability                 = "0.3,1,1,0.2", -- NUKE
+		price = 200,
+		mana = 100,
+		max_uses    = 3,
+		--custom_xml_file = "mods/abyssal_glare/files/entities/projectiles/deck/mini_nuke.xml",
+		action 		= function()
+			add_projectile("mods/abyssal_glare/files/entities/projectiles/deck/antimatter_bomb_giga.xml")
+			c.fire_rate_wait = 10
+			c.speed_multiplier = c.speed_multiplier * 0.75
+			c.material = "fire"
+			c.material_amount = c.material_amount + 30
+			c.ragdoll_fx = 2
+			c.gore_particles = c.gore_particles + 10
+			c.screenshake = c.screenshake + 10.5
+			current_reload_time = current_reload_time + 300
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 150.0
+			
+			if ( c.speed_multiplier >= 20 ) then
+				c.speed_multiplier = math.min( c.speed_multiplier, 20 )
+			elseif ( c.speed_multiplier < 0 ) then
+				c.speed_multiplier = 0
+			end
+		end,
+	},
 
 }
 

@@ -13,7 +13,8 @@ local BM = {
 "$biome_abyssal_glare_crystal",
 "$biome_abyssal_glare_crystal_border",
 "$biome_abyssal_glare_maze",
-"$biome_abyssal_glare_portalroom"
+"$biome_abyssal_glare_portalroom",
+"$biome_abyssal_glare_hills"
 }
 
 for i, biome in ipairs(BM) do

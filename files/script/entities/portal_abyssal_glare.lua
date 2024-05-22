@@ -20,6 +20,7 @@ function collision_trigger(entity)
   BiomeMapLoad_KeepPlayer("mods/abyssal_glare/files/script/biome_map.lua","mods/abyssal_glare/files/overrides/_pixel_scenes.xml")
   SessionNumbersSave()
 
+  GamePrintImportant("THE GODS CAN'T FIND THE PUPPET", "Yet it's still shackled..", "mods/abyssal_glare/files/ui_gfx/decorations/3piece_fate_card.png")
   --Kill the portal
   EntityKill(GetUpdatedEntityID())
 end

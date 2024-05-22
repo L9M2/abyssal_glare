@@ -123,7 +123,7 @@ local MYBIOMES = {
   {
     biome_filename="mods/abyssal_glare/files/biome/abyssal_crystal_border.xml",
     height_index="0",
-    color="ff0d0912",
+    color="ff1d1521",
   },
   {
     biome_filename="mods/abyssal_glare/files/biome/abyssal_crystal.xml",
@@ -133,7 +133,12 @@ local MYBIOMES = {
   {
     biome_filename="mods/abyssal_glare/files/biome/abyssal_crystal_maze.xml",
     height_index="0",
-    color="ff0d0913",
+    color="ff4b3075",
+  },
+  {
+    biome_filename="mods/abyssal_glare/files/biome/abyssal_crystal_hills.xml",
+    height_index="0",
+    color="ff471596",
   },
   {
     biome_filename="mods/abyssal_glare/files/biome/abyssal_glare_portalroom.xml",

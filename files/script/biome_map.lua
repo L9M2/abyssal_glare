@@ -1,8 +1,8 @@
 -- constants (color format is ARGB)
 dofile_once("data/scripts/lib/utilities.lua")
  --31/01/2024 Conga: changed print_errors to print
-local w = 18
-local h = 18
+local w = 36
+local h = 36
 BiomeMapSetSize( w, h )
 local w, h = BiomeMapGetSize()
 --Our Main map.
