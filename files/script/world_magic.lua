@@ -159,6 +159,11 @@ local MYBIOMES = {
     biome_filename="mods/abyssal_glare/files/biome/abyssal_pillars.xml",
     height_index="13",
     color="ff1a0911",
+  },
+  {
+    biome_filename="mods/abyssal_glare/files/biome/abyssal_glare_essence_room.xml",
+    height_index="13",
+    color="ff64458a",
   }
 }
 print("Appended the custom Abyssal Glare biomes.")

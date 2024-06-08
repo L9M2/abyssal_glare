@@ -7,6 +7,10 @@ Parallax = dofile_once( "mods/abyssal_glare/files/script/lib/bg/parallax.lua" )
 dofile_once("mods/abyssal_glare/files/script/entities/dmc/player.lua")
 dofile_once("mods/abyssal_glare/files/script/entities/dmc/base_humanoid.lua")
 
+ModLuaFileAppend("data/scripts/essences/away.lua", "mods/abyssal_glare/files/script/mod_compat/essence_eater.lua")
+
+
+
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/abyssal_glare/files/actions.lua")
 ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/abyssal_glare/files/status_effects.lua")
 
@@ -112,6 +116,11 @@ end
 
 function OnModPreInit() -- This is called first for all mods
 print(" An eye for an eye.")
+
+
+
+--local entities = PolymorphTableGet()
+--printTable(entities)
 --31/01/2024 Conga: I know it's your code and none of my business, but do we need an error print here? It shouldn't affect performance *too* much, but maybe I just have over-optimise brain
 ---M:My Creator is asking for help?
 ---Who is this intruder?
@@ -274,7 +283,7 @@ end
 	EntityLoad("mods/abyssal_glare/files/entities/npc/dg.xml", 155, -120)
 	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/no_material.png", "", 0, 0, "mods/abyssal_glare/bnuy.png", true )
 	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_mat.png", "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple.png", 1024, -1024, "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_background.png", true )
-		
+		EntityLoad("mods/abyssal_glare/files/entities/items/pickups/essence_abyssal_void.xml", 155, -120)
 
 
 	local players = EntityGetWithTag("player_unit")

@@ -6,7 +6,7 @@ local w, h = BiomeMapGetSize()
 local biomemapimage = {} -- Or whatever the table you want to insert into is
 local color = 0
 
-local bottomh = 8
+local bottomh = 4
 local toph = 2
 local newh = h+bottomh+toph
 if (h >= 48) and (w > 4) then
@@ -47,7 +47,7 @@ biomemapimage = {}
 --You need to change the _biomes_all.xml file to change the biome_offset_y variable to account for it.
 --Sideways expansion also will have to keep in mind stuff like the music machines and the shadow bosses.
 --We need to add the toph to take into account the new top.
-for y=0, 8 do
+for y=0, 4 do
   for x=0, w do
     local color = BiomeMapConvertPixelFromUintToInt(BiomeMapGetPixel(x, h+toph-1))
     BiomeMapSetPixel(x, h+toph+ y, color)
@@ -71,15 +71,16 @@ print("ABYSSAL GLARE:New Map size is Width:"..w.." ,Height:"..h.." pixels.")
 --Should be under GOLD
 for y=1, (1) do
   for x=0, (3-1) do
-    BiomeMapSetPixel(x + 6, (h-8) + y, 0xff7a8c69)
+    BiomeMapSetPixel(x + 6, (h-4) + y, 0xff7a8c69)
   end
 end
-for y=1, (2) do
-  for x=0, (3-1) do
-    BiomeMapSetPixel(x + 6, (h-8) + y, 0xff88ad5f)
+for y=1, (3) do
+  for x=0, (2) do
+    BiomeMapSetPixel(x + 6, (h-4) + y, 0xff88ad5f)
   end
 end
-BiomeMapSetPixel(4 + 3, (h-8), 0xff7a8c69)
-BiomeMapSetPixel(4 + 3, (h-8) + 3, 0xff88ad5f)
+BiomeMapSetPixel(4 + 3, (h-4), 0xff7a8c69)
+BiomeMapSetPixel(4 + 3, (h-4) + 3, 0xff88ad5f)
 local pillars = MAP_IMAGE_COORDS[3]
 BiomeMapSetPixel((math.floor((w)/2))+(pillars.x)-2, pillars.y+4, 0xff1a0911)
+BiomeMapSetPixel(w-2, h-2, 0xff64458a)

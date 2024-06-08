@@ -5,7 +5,7 @@
     wang_template_file="mods/abyssal_glare/files/wang_tiles/abyssal_crystal_maze.png" 
     background_image="mods/abyssal_glare/files/biome_gfx/abyssal_biome_wall.png"
     background_use_neighbor="0"
-    lua_script="data/scripts/biomes/hills.lua"
+    lua_script="mods/abyssal_glare/files/script/biomes/abyssal_crystal_maze.lua"
     mExtraPerlinScaleX="0.051235" 
     mExtraPerlinScaleY="0.0342857" 
     mGradientAddNoise="1" 

@@ -600,6 +600,39 @@ local a = {
 			end
 		end,
 	},
+	{
+		id          = "MINI_ANTIMATTER_BOMB",
+		name 		= "$action_nuke",
+		description = "$actiondesc_nuke",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/antimatter_bomb.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/nuke_unidentified.png",
+		related_projectiles	= {"mods/abyssal_glare/files/entities/misc/spell_card_effect/antimatter_bomb.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "1,5,6,10", -- NUKE
+		spawn_probability                 = "0.3,1,1,0.2", -- NUKE
+		price = 200,
+		mana = 100,
+		max_uses    = 3,
+		--custom_xml_file = "mods/abyssal_glare/files/entities/projectiles/deck/mini_nuke.xml",
+		action 		= function()
+			add_projectile("mods/abyssal_glare/files/entities/projectiles/deck/antimatter_bomb.xml")
+			c.fire_rate_wait = 10
+			c.speed_multiplier = c.speed_multiplier * 0.75
+			c.material = "fire"
+			c.material_amount = c.material_amount + 30
+			c.ragdoll_fx = 2
+			c.gore_particles = c.gore_particles + 10
+			c.screenshake = c.screenshake + 10.5
+			current_reload_time = current_reload_time + 300
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 150.0
+			
+			if ( c.speed_multiplier >= 20 ) then
+				c.speed_multiplier = math.min( c.speed_multiplier, 20 )
+			elseif ( c.speed_multiplier < 0 ) then
+				c.speed_multiplier = 0
+			end
+		end,
+	},
 
 }
 

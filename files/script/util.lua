@@ -80,3 +80,17 @@ function teleport_player(x, y)
   end
   EntitySetTransform(player, x, y)
 end
+
+function printTable(tbl, indent)
+  indent = indent or 0
+  local indentStr = string.rep("  ", indent)
+  
+  for key, value in pairs(tbl) do
+      if type(value) == "table" then
+          print(indentStr .. tostring(key) .. ":")
+          printTable(value, indent + 1)
+      else
+          print(indentStr .. tostring(key) .. ": " .. tostring(value))
+      end
+  end
+end
