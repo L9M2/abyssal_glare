@@ -124,6 +124,9 @@ local a = {
 			local x, y = EntityGetTransform( entity_perk_item )
 
 			--I know tags are frowned upon, but maybe I can get by with just ONE tag...
+
+			--TODO:
+			--GET 👏 RID 👏 OF 👏 THE 👏 TAG 👏
 			local playerclone = EntityLoad("data/entities/player.xml", x, y)
 			EntityAddTag( playerclone, "player_clone" )
 			local comp = EntityGetAllComponents(playerclone)

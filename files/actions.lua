@@ -200,6 +200,7 @@ local a = {
 		mana = 30,
 		action 		= function()
 			--discard_random_action() --Apart of the original spell definition, but isn't implemented. --Kept here in case the api updates.
+			--This is honestly kinda jank. It think it just borks the discarded table a bit and makes the wand act inconsistantly.
 			c.screenshake = c.screenshake + 10.5
 			c.fire_rate_wait = c.fire_rate_wait + 120
 			c.spread_degrees = c.spread_degrees + 30
@@ -502,8 +503,8 @@ local a = {
 	},
 	{
 		id          = "MINI_NUKE",
-		name 		= "$action_nuke",
-		description = "$actiondesc_nuke",
+		name 		= "$abyssal_glare_action_mini_nuke",
+		description = "$abyssal_glare_action_desc_mini_nuke",
 		spawn_requires_flag = "card_unlocked_nuke",
 		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/mini_nuke.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/nuke_unidentified.png",
@@ -536,8 +537,8 @@ local a = {
 	},
 	{
 		id          = "ANTIMATTER_BOMB",
-		name 		= "$action_nuke",
-		description = "$actiondesc_nuke",
+		name 		= "$abyssal_glare_action_antimatter_bomb",
+		description = "$abyssal_glare_action_desc_antimatter_bomb",
 		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/antimatter_bomb.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/nuke_unidentified.png",
 		related_projectiles	= {"mods/abyssal_glare/files/entities/misc/spell_card_effect/antimatter_bomb.xml"},
@@ -569,8 +570,8 @@ local a = {
 	},
 	{
 		id          = "ANTIMATTER_BOMB_GIGA",
-		name 		= "$action_nuke",
-		description = "$actiondesc_nuke",
+		name 		= "$abyssal_glare_action_antimatter_bomb_giga",
+		description = "$abyssal_glare_action_desc_antimatter_bomb_giga",
 		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/antimatter_bomb_giga.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/nuke_unidentified.png",
 		related_projectiles	= {"mods/abyssal_glare/files/entities/misc/spell_card_effect/antimatter_bomb_giga.xml"},
@@ -602,8 +603,8 @@ local a = {
 	},
 	{
 		id          = "MINI_ANTIMATTER_BOMB",
-		name 		= "$action_nuke",
-		description = "$actiondesc_nuke",
+		name 		= "$abyssal_glare_action_antimatter_bomb_mini",
+		description = "$abyssal_glare_action_desc_antimatter_bomb_mini",
 		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/antimatter_bomb.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/nuke_unidentified.png",
 		related_projectiles	= {"mods/abyssal_glare/files/entities/misc/spell_card_effect/antimatter_bomb.xml"},
@@ -631,6 +632,28 @@ local a = {
 			elseif ( c.speed_multiplier < 0 ) then
 				c.speed_multiplier = 0
 			end
+		end,
+	},	
+	{
+		id          = "DISCARDED",
+		name 		= "$abyssal_glare_action_discarded",
+		description = "$abyssal_glare_action_desc_discarded",
+		sprite 		= "mods/abyssal_glare/files/ui_gfx/gun_actions/discarded.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/burst_4_unidentified.png",
+		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+		type 		= ACTION_TYPE_DRAW_MANY,
+		spawn_level                       = "5,6,10", -- BURST_4
+		spawn_probability                 = "0.1,0.1,0.5", -- BURST_4
+		price = 500,
+		mana = 50,
+		max_uses = 30,
+		action 		= function()
+			c.damage_projectile_add = c.damage_projectile_add + (0.56 * #discarded)
+			c.gore_particles    = c.gore_particles + 5
+			c.fire_rate_wait    = c.fire_rate_wait + 5
+			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			draw_actions( 1, true )
 		end,
 	},
 
