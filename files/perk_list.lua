@@ -177,6 +177,24 @@ local a = {
 		end,
 	},
 	{
+		id = "THE_SHARD",
+		ui_name = "The Shard",
+		ui_description = "...",
+		ui_icon = "mods/abyssal_glare/files/ui_gfx/perk_icons/worlddeath.png",
+		perk_icon = "mods/abyssal_glare/files/items_gfx/perks/worlddeath.png",
+		remove_other_perks = {"ABYSSAL_GLARE_ONE_OFF_DUPLICATE_PLAYER"},
+		stackable = STACKABLE_NO,
+		stackable_maximum = 1,
+		max_in_perk_pool = 1,
+		usable_by_enemies = false,
+		not_in_default_perk_pool = true,
+		one_off_effect = true,
+		func = function()
+
+			GamePrintImportant( "You've found the answer", "...but will it work?" )
+		end,
+	},
+	{
 		id = "SILVER_DOLLAR",
 		ui_name = "$abyssal_glare_perk_silver_dollar",
 		ui_description = "$abyssal_glare_perkdesc_silver_dollar",
@@ -189,12 +207,20 @@ local a = {
 		stackable_maximum = 1,
 		max_in_perk_pool = 1,
 		func = function( entity_perk_item, entity_who_picked, item_name )
+
+
+			local x,y = EntityGetTransform( entity_who_picked )
+			local child_id = EntityLoad( "mods/abyssal_glare/files/entities/misc/perks/silver_dollar.xml", x, y )
+			EntityAddTag( child_id, "perk_entity" )
+			EntityAddChild( entity_who_picked, child_id )
+
 			EntityAddComponent( entity_who_picked, "LuaComponent",
 			{
 				_tags = "perk_component",
 				script_source_file = "mods/abyssal_glare/files/script/entities/perks/silver_dollar.lua",
 				execute_every_n_frame = "300",
 			} )
+			--[[
 			EntityAddComponent( entity_who_picked, "LuaComponent",
 			{
 				_tags = "perk_component",
@@ -221,8 +247,7 @@ local a = {
 			ConvertMaterialEverywhere( gold_static_dark, silver_static ) 
 			ConvertMaterialEverywhere( gold_static_bad, silver_static_bad ) 
 			ConvertMaterialEverywhere( gold_bad, silver_bad )
-
-
+			]]
 		end,
 	},
 	{
@@ -245,6 +270,34 @@ local a = {
 				execute_every_n_frame = "1",
 
 			})
+		end
+	},
+	{
+		id = "NOTHING",
+		ui_name = "...",
+		ui_description = "...",
+		ui_icon = "mods/abyssal_glare/files/ui_gfx/perk_icons/nothing.png",
+		perk_icon = "mods/abyssal_glare/files/items_gfx/perks/nothing.png",
+		stackable = STACKABLE_YES,
+		usable_by_enemies = false,
+		one_off_effect = true,
+		func = function( entity_perk_item, entity_who_picked, item_name )
+		end
+	},
+	{
+		id = "IOU12",
+		ui_name = "I.O.U. 1x Great Treasure Chest",
+		ui_description = "You will recieve a Great Treasure Chest upon removal of this perk.",
+		ui_icon = "mods/abyssal_glare/files/ui_gfx/perk_icons/nothing.png",
+		perk_icon = "mods/abyssal_glare/files/items_gfx/perks/nothing.png",
+		stackable = STACKABLE_YES,
+		usable_by_enemies = false,
+		one_off_effect = true,
+		func = function( entity_perk_item, entity_who_picked, item_name )
+		end,		
+		func_remove = function( entity_who_picked )
+			local x,y = EntityGetTransform( entity_who_picked )
+			EntityLoad("data/entities/items/pickup/chest_random_super.xml", x, y - 128)
 		end
 	}
 

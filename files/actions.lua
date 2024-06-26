@@ -656,6 +656,21 @@ local a = {
 			draw_actions( 1, true )
 		end,
 	},
+	{
+		id          = "GORE",
+		name 		= "$action_gore",
+		description = "$actiondesc_gore",
+		sprite 		= "data/ui_gfx/gun_actions/gore.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "0,1,2,4,5",
+		spawn_probability                 = "0.1,0.1,0.3,0.4,0.2",
+		price = 100,
+		mana = 0,
+		action 		= function()
+			c.ragdoll_fx = 3
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 90.0
+		end,
+	},
 
 }
 

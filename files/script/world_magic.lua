@@ -12,9 +12,9 @@ dofile_once("mods/abyssal_glare/files/script/enums.lua")
 
 function replace_with_my_pixel_scenes()
   print("Appending Monolith pixel scenes")
-  --Side note here. This is unimplemented. Mainly due to not adding the scenes yet. This is for scenes not tied to a biome and are used for limited spawned scenes.
+  --Side note here. This is for scenes not tied to a biome and are used for limited spawned scenes.
   --You could fudge it with other lua code, but this ignores ALL biome placement altogether unless you check for it and places it in the game world so even a restart makes the scenes persist and still generate.
-  --Think of it like the Eye Glyphs and Couldron room, or the Gourd Room. They spawn even if you quite and reenter the game and visit the locations.
+  --Think of it like the Eye Glyphs and Couldron room, or the Gourd Room. They spawn even if you quit and reenter the game and visit the locations.
   --[[
   L9M2:
   Well crud.

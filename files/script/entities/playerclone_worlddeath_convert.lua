@@ -21,22 +21,19 @@ if playerclone == nil and playerunit then
 	ConvertEverythingToGold( "abyssal_glare_abyssal_sand", "abyssal_glare_dense_abyssal_crystal" )
 
 
+	if not GameHasFlagRun("PERK_PICKED_ABYSSAL_GLARE_THE_SHARD") then
 	local tabletitle = {
 	'A terrible fate...',
 	'A puppet falls...',
+	'The world is doomed...',
 	'The abyssal void consumes...',
 	'Darkness approaches...',
-	'An Eye watches...'
 	}
 	local tablesub = {
 	'The puppet suffers through a doomed world.\nUntil the cosmic button is clicked.',
-	'Does it get monotonous, mortal?\nA cycle of the cosmos.\nDoomed to repeat.',
-	'The Monolith finds it amusing.',
-	'Abyssal Glares watch in silence. Fate of the world is doomed.',
+	'Abyssal Glares watch in silence as fate of the world is sealed.',
 	'A flicker in the cosmic code.\nThe world is now doomed.',
 	'Another dance with the cosmic delete button.\nHow quaint.',
-	'... ... .9. ... ...\n... ... 9.9 ... ...\n... .99 ... 99. ...\n.99 9.. .9. ..9 99.\n... .99 ... 99. ...\n... ... 9.9 ... ...\n... ... .9. ... ...\nAn eye for an eye.',
-	'My Creator finds it delightful.',
 	'A way to create a paradox?\nThere was two, but now one.\nStuck in a doomed world.',
 	'Perhaps there is a way.\nA way to sever the connection of the puppet.\nThis was not one of them.',
 	'A message and brew lost, yet maybe a key is yet to be.\nThrice is a theme in this game of three.',
@@ -45,11 +42,12 @@ if playerclone == nil and playerunit then
 	'The puppet is alone once more,\nat a cost of the cosmic code.\nThe great reset approaches again.',
 	'To truely win is to die,\nbut if you cannot die then did you win?\nDeath is inevitable once the button is pushed.',
 	'Void runs thick through matter,\nyet some resist it and push back.\nNo escape from this world.',
-	'There is no turning back.\nThe world is now ',
+	'There is no turning back.\nThe world is now doomed.',
 	'With their death, the thread of prophecy is severed.\nRestore the weave of fate,\nor persist in the doomed world you have created.'}
 	local randsub= tablesub[math.random(#tablesub)]
 	local randtitle= tabletitle[math.random(#tabletitle)]
-	GamePrintImportant(randtitle, randsub, "mods/abyssal_glare/files/ui_gfx/decorations/3piece_fate_card.png")
+		GamePrintImportant(randtitle, randsub, "mods/abyssal_glare/files/ui_gfx/decorations/3piece_fate_card.png")
+	end
 
 	if not GameHasFlagRun("abyssal_glare_worlddeath_initialized") then
 		GameAddFlagRun("abyssal_glare_worlddeath_initialized")

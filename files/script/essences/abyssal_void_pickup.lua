@@ -5,7 +5,7 @@ dofile( "data/scripts/perks/perk_list.lua" )
 function item_pickup( entity_item, entity_who_picked, item_name )
 	-- fetch perk info ---------------------------------------------------
 	--[[
-	Yo. So this is based off the essence pickup function. However I've modified it to work on it's own with a custom essence. Check "essence_eater.lua" for more info on how that part works
+	Yo. So this is based off the essence pickup function. However I've modified it to work on it's own with a custom essence. Check out my "essence_eater.lua" for more info on how that part works
 		but in a shellnut this does the same thing as the original script, but it allows my custom essence to be defined. 
 		It's somewhat like a perk, but not really as a perk can be removed by the null altar but not essences.
 		This also determines what kind of side effect each essence would do. Such as Air releasing gusts of air projectiles around the player.
