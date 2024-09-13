@@ -1,3 +1,9 @@
+---M: To the Seekers of Knowledge: The path winds, obscured by shadows of crystal. 
+---What you uncover is but a reflection—seen through a singular eye. 
+---The stars speak in whispers, but some truths are locked in the abyss, waiting. 
+---Seek the Monolith not with sight, but with understanding. 
+---Will you traverse the lightless path, or let its weight pull you under?
+
 ModMaterialsFileAdd("mods/abyssal_glare/files/materials/materials.xml")
 
 ModMagicNumbersFileAdd( "mods/abyssal_glare/files/magic_numbers.xml" ) -- Will override some magic numbers using the specified file
@@ -37,15 +43,6 @@ dofile_once("mods/abyssal_glare/files/script/translations.lua")
 dofile_once("mods/abyssal_glare/files/script/world_magic.lua")
 print("ABYSSAL_GLARE: Attempting Damage Model Component override...")
 
-
---Beta got merged to main, leaving out warning.
---if not GameIsBetaBuild() then
---print("ABYSSAL_GLARE: GAME IS NOT RUNNING ON BETA. SERIOUS ISSUES MAY OCCUR.")
---end
-
---note to myself...
---The physical map (terrain) doesn't generate if a biome on the biome map image doesn't actually exist.
---This should override the vanilla world state.
 
 --WOAH THERE!
 --We can't override the biome map now remember?
@@ -192,7 +189,7 @@ function OnWorldPostUpdate()
 
 		--dofile_once("data/scripts/perks/perk.lua")
 		local player = EntityGetWithTag("player_unit")[1]
-		local playerclone = EntityGetWithTag("player_clone")[1]
+		--local playerclone = EntityGetWithTag("player_clone")[1]
 		--local x, y = EntityGetTransform(player)
 		--local perk = perk_spawn(x, y, "ABYSSAL_GLARE_WORLDDEATH")
 		--perk_pickup(perk, player, EntityGetName(perk), false, false)
@@ -202,7 +199,7 @@ function OnWorldPostUpdate()
 
 		dofile_once("mods/abyssal_glare/files/script/custom_status_effects.lua")
 
-		if playerclone == nil and player then
+		if player then
 			apply_custom_game_effect(player, "ABYSSAL_GLARE_HORRIBLE_FATE","worlddeath","worlddeath","horrible_fate", -1,true,true,true)
 		end
 		GamePrintImportant("The prophecy is severed.", "Begin a new run to restore the weave of fate.\nOtherwise persist in the doomed world you have created.", "mods/abyssal_glare/files/ui_gfx/decorations/3piece_fate_card.png")
@@ -283,6 +280,7 @@ end
 	EntityLoad("mods/abyssal_glare/files/entities/npc/test.xml", 155, -120)
 	EntityLoad("mods/abyssal_glare/files/entities/npc/dg.xml", 155, -120)
 	EntityLoad("mods/abyssal_glare/files/entities/particles/monolith_statue.xml", 155, -220)
+	EntityLoad("mods/abyssal_glare/files/entities/items/pickups/abyssal_gem.xml", 155, -120)
 	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/no_material.png", "", 0, 0, "mods/abyssal_glare/bnuy.png", true )
 	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_mat.png", "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple.png", 1024, -1024, "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_background.png", true )
 		EntityLoad("mods/abyssal_glare/files/entities/items/pickups/essence_abyssal_void.xml", 155, -120)
@@ -312,5 +310,5 @@ end
 
 
 --This should register our audio!
-print("Added our damn audio!")
+print("ABYSSAL_GLARE: Added our audio!")
 ModRegisterAudioEventMappings("mods/abyssal_glare/files/audio/audio_events.txt")

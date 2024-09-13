@@ -11,8 +11,8 @@ dofile_once("data/scripts/lib/utilities.lua")
 	GameScreenshake( 20 )
 
 	local playerunit = EntityGetWithTag("player_unit")[1]
-	local playerclone = EntityGetWithTag("player_clone")[1]
-if playerclone == nil and playerunit then
+	--local playerclone = EntityGetWithTag("player_clone")[1]
+if playerunit then
 	
 	print("test passed")
 	local x, y = EntityGetTransform( playerunit )

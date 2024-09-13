@@ -63,7 +63,7 @@ function spawn_pillars( x, y )
 	
 	local under = 1
 	local above = 0
-	
+	--First value is flag, second is pillar name
 	SetRandomSeed( x, y )
 	local flags = 
 	{

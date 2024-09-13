@@ -56,6 +56,13 @@ function replace_with_my_pixel_scenes()
         ]]))
       ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
 
+      local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
+      local xml = nxml.parse(content)
+      xml:first_of("PixelSceneFiles"):add_child(nxml.parse([[
+        <File>mods/abyssal_glare/files/biome_impl/scenes/monolith_statue/monolith_statue.xml</File>
+        ]]))
+      ModTextFileSetContent("data/biome/" .. v .. ".xml", tostring(xml))
+
       --local content = ModTextFileGetContent("data/biome/" .. v .. ".xml")
       --local xml = nxml.parse(content)
       --xml:first_of("PixelSceneFiles"):add_child(nxml.parse([[

@@ -1,0 +1,12 @@
+<PixelScenes>
+
+  <mBufferedPixelScenes>
+
+    <PixelScene background_filename="mods/abyssal_glare/files/biome_impl/scenes/monolith_statue/monolith_bg.png" colors_filename="mods/abyssal_glare/files/biome_impl/scenes/monolith_statue/monolith_fg.png" material_filename="mods/abyssal_glare/files/biome_impl/scenes/monolith_statue/monolith_mat.png" pos_x="3700" pos_y="37500" skip_biome_checks="1" ></PixelScene>
+    <PixelScene background_filename="" colors_filename="" material_filename="mods/abyssal_glare/files/biome_impl/scenes/monolith_statue/monolith_mat2.png" pos_x="3444" pos_y="37500" skip_biome_checks="1" ></PixelScene>
+
+
+    <PixelScene pos_x="3828" pos_y="37608" just_load_an_entity="mods/abyssal_glare/files/entities/particles/monolith_statue.xml" />
+  </mBufferedPixelScenes>
+
+</PixelScenes>

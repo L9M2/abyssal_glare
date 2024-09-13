@@ -17,7 +17,7 @@ local a = {
 				for i,damagemodel in ipairs(damagemodels) do
 					ComponentSetValue2( damagemodel, "blood_material", "water" )
 					ComponentSetValue2( damagemodel, "blood_spray_material", "water" )
-					ComponentSetValue2( damagemodel, "blood_multiplier", "3.0" )
+					ComponentSetValue2( damagemodel, "blood_multiplier", 3.0 )
 					ComponentSetValue2( damagemodel, "blood_sprite_directional", "data/particles/bloodsplatters/bloodsplatter_directional_blue_$[1-3].xml" )
 					ComponentSetValue2( damagemodel, "blood_sprite_large", "data/particles/bloodsplatters/bloodsplatter_blue_$[1-3].xml" )
 				end
@@ -119,6 +119,7 @@ local a = {
 		stackable_maximum = 1,
 		max_in_perk_pool = 1,
 		usable_by_enemies = false,
+		not_in_default_perk_pool = true,
 		one_off_effect = true,
 		func = function( entity_perk_item, entity_who_picked, item_name )
 			local x, y = EntityGetTransform( entity_perk_item )
@@ -128,7 +129,7 @@ local a = {
 			--TODO:
 			--GET 👏 RID 👏 OF 👏 THE 👏 TAG 👏
 			local playerclone = EntityLoad("data/entities/player.xml", x, y)
-			EntityAddTag( playerclone, "player_clone" )
+			--EntityAddTag( playerclone, "player_clone" )
 			local comp = EntityGetAllComponents(playerclone)
 			for i, v in ipairs(comp) do
 			local lua = EntityGetFirstComponent(playerclone,"LuaComponent")
@@ -220,34 +221,6 @@ local a = {
 				script_source_file = "mods/abyssal_glare/files/script/entities/perks/silver_dollar.lua",
 				execute_every_n_frame = "300",
 			} )
-			--[[
-			EntityAddComponent( entity_who_picked, "LuaComponent",
-			{
-				_tags = "perk_component",
-				script_source_file = "mods/abyssal_glare/files/script/entities/perks/silver_dollar_nuggetkill.lua",
-				execute_every_n_frame = "1",
-
-			})
-			local gold = CellFactory_GetType( "gold" ) --Get Type takes a string -> ID
-			local gold_box2d = CellFactory_GetType( "gold_box2d" ) --Get Type takes a string -> ID
-			local gold_static = CellFactory_GetType( "gold_static" ) --Get Type takes a string -> ID
-			local gold_static_dark = CellFactory_GetType( "gold_static_dark" ) --Get Type takes a string -> ID
-
-			local gold_static_bad = CellFactory_GetType( "gold_static_radioactive" ) --Get Type takes a string -> ID
-			local gold_bad = CellFactory_GetType( "gold_radioactive" ) --Get Type takes a string -> ID
-
-
-			local silver = CellFactory_GetType( "silver" ) --Get Type takes a string -> ID
-			local silver_static = CellFactory_GetType( "silver_static" ) --Get Type takes a string -> ID
-			local silver_bad = CellFactory_GetType( "silver_radioactive" ) --Get Type takes a string -> ID
-			local silver_static_bad = CellFactory_GetType( "silver_static_radioactive" ) --Get Type takes a string -> ID
-			ConvertMaterialEverywhere( gold, silver ) --These need int's passed through.
-			ConvertMaterialEverywhere( gold_box2d, silver ) 
-			ConvertMaterialEverywhere( gold_static, silver_static ) 
-			ConvertMaterialEverywhere( gold_static_dark, silver_static ) 
-			ConvertMaterialEverywhere( gold_static_bad, silver_static_bad ) 
-			ConvertMaterialEverywhere( gold_bad, silver_bad )
-			]]
 		end,
 	},
 	{
@@ -274,8 +247,8 @@ local a = {
 	},
 	{
 		id = "NOTHING",
-		ui_name = "...",
-		ui_description = "...",
+		ui_name = "$abyssal_glare_perk_nothing",
+		ui_description = "$abyssal_glare_perkdesc_nothing",
 		ui_icon = "mods/abyssal_glare/files/ui_gfx/perk_icons/nothing.png",
 		perk_icon = "mods/abyssal_glare/files/items_gfx/perks/nothing.png",
 		stackable = STACKABLE_YES,
@@ -286,8 +259,8 @@ local a = {
 	},
 	{
 		id = "IOU12",
-		ui_name = "I.O.U. 1x Great Treasure Chest",
-		ui_description = "You will recieve a Great Treasure Chest upon removal of this perk.",
+		ui_name = "$abyssal_glare_perk_iou_gtc",
+		ui_description = "$abyssal_glare_perkdesc_iou_gtc",
 		ui_icon = "mods/abyssal_glare/files/ui_gfx/perk_icons/nothing.png",
 		perk_icon = "mods/abyssal_glare/files/items_gfx/perks/nothing.png",
 		stackable = STACKABLE_YES,

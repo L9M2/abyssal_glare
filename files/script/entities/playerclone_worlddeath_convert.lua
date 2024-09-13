@@ -9,9 +9,9 @@ dofile_once("data/scripts/lib/utilities.lua")
 	GameScreenshake( 500 )
 
 	local playerunit = EntityGetWithTag("player_unit")[1]
-	local playerclone = EntityGetWithTag("player_clone")[1]
+	--local playerclone = EntityGetWithTag("player_clone")[1]
 
-if playerclone == nil and playerunit then
+if playerunit then
 	--print("test passed")
 	local x, y = EntityGetTransform( playerunit )
 	GamePlaySound( "data/audio/Desktop/misc.bank", "misc/beam_from_sky_hit", x, y )
