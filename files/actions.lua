@@ -90,6 +90,7 @@ local a = {
 		action 		= function()
 			add_projectile("mods/abyssal_glare/files/entities/projectiles/deck/cloud_gold.xml")
 			c.fire_rate_wait = c.fire_rate_wait + 15
+			current_reload_time = current_reload_time + 120
 		end,
 	},
 	{

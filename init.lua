@@ -281,6 +281,7 @@ end
 	EntityLoad("mods/abyssal_glare/files/entities/npc/dg.xml", 155, -120)
 	EntityLoad("mods/abyssal_glare/files/entities/particles/monolith_statue.xml", 155, -220)
 	EntityLoad("mods/abyssal_glare/files/entities/items/pickups/abyssal_gem.xml", 155, -120)
+	EntityLoad("mods/abyssal_glare/files/entities/items/pickups/bone_key.xml", 155, -120)
 	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/no_material.png", "", 0, 0, "mods/abyssal_glare/bnuy.png", true )
 	LoadPixelScene( "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_mat.png", "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple.png", 1024, -1024, "mods/abyssal_glare/files/biome_impl/abyssal_glare_terraria_temple_background.png", true )
 		EntityLoad("mods/abyssal_glare/files/entities/items/pickups/essence_abyssal_void.xml", 155, -120)

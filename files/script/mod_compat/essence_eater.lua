@@ -29,7 +29,7 @@ function abyssal_glare_append_death()
     if ( pick_abyssal_void > 0 ) then
 		for i=1,pick_abyssal_void do
             --Insert any entity to be spawned once the eater is destroyed.
-			table.insert( loadlist, "data/entities/items/pickup/poopstone.xml" )
+			table.insert( loadlist, "data/entities/items/pickup/poopstone.xml" ) --Could be any entity.
 		end
 		
 		GlobalsSetValue( key_abyssal_void, "0" ) --Removed how many essences we have on us.

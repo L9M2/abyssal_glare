@@ -86,7 +86,7 @@ local tablesub = {
 'In the interstellar theater, a specter dances,\nweaving a tale of paradoxical triumphs.',
 'In mirrored worlds,\nthe puppet unravels secrets,\na cosmic secret keeper.',
 'As eyes of glyphs remain veiled,\neven the cosmic audience watches in curious silence.',
-'A cauldron mysteries weave tales,\nembraced by the puppet,\nscrutinized by the watchers.',
+'A cauldron mysteries weave tales,\nembraced by the puppet,\nscrutinized by the seekers.',
 'Abyssal eyes observe a puppets journey,\nintrigued by the seeker quest for orbs untold.',
 'In the cosmic script, orbs are keys to the puppets ultimate dance.\nThe Monolith watches in silent anticipation.',
 'In the shadow of shifting realms, echoes of your rebirth resonate.',
@@ -100,7 +100,9 @@ local tablesub = {
 'The puppet is always alone,\nyet the cosmic code says otherwise.\nA friend to share the strings with.',
 'To truely win is to die,\nbut if you cannot die then did you win?',
 'Gods are angry at the Seekers actions upon the puppet.',
-'Void runs thick through matter,\nyet some resist it and push back.'}
+'Void runs thick through matter,\nyet some resist it and push back.',
+'Hidden Essences in the world of benign beings.\nThere is a hidden new one in the deepest corner.',
+'A mark of death for pillars left in a wasteland,\nbut what does it mean?\nEven the creator is unsure.'}
 local randsub= tablesub[math.random(#tablesub)]
 local randtitle= tabletitle[math.random(#tabletitle)]
 GamePrintImportant(randtitle, randsub)

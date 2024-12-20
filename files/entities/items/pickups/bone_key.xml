@@ -1,0 +1,73 @@
+<Entity tags="hittable,teleportable_NOT,item_physics,item_pickup" >
+
+
+  <!-- physical presence -->
+  
+  <PhysicsBodyComponent 
+    _tags="enabled_in_world"
+    uid="1" 
+    allow_sleep="1" 
+    angular_damping="0" 
+    fixed_rotation="0" 
+    is_bullet="1" 
+    linear_damping="0"
+    auto_clean="0"
+    on_death_leave_physics_body="1"
+    hax_fix_going_through_ground="1"
+  ></PhysicsBodyComponent>
+  
+  <PhysicsImageShapeComponent 
+    body_id="1"
+    centered="1"
+    image_file="mods/abyssal_glare/files/items_gfx/pickups/bone_key.png"
+    material="bone_box2d"
+  ></PhysicsImageShapeComponent>
+  
+  <PhysicsThrowableComponent
+    max_throw_speed="8"
+    throw_force_coeff="1.7"
+  ></PhysicsThrowableComponent>
+  <ProjectileComponent
+    _tags="enabled_in_world"
+    lifetime="-1"
+    penetrate_entities="1"
+  ></ProjectileComponent>
+  <VelocityComponent
+    _tags="enabled_in_world"
+  ></VelocityComponent>
+
+
+  <!-- item -->
+
+  <SpriteComponent
+    _tags="enabled_in_hand"
+    _enabled="0"
+    offset_x="8"
+    offset_y="8"
+    image_file="mods/abyssal_glare/files/items_gfx/pickups/bone_key.png"
+  ></SpriteComponent>
+
+  <ItemComponent
+    _tags="enabled_in_world"
+    item_name="Bone Key"
+    ui_description="For all the effort it was to get this it seems useless."
+    ui_sprite="mods/abyssal_glare/files/items_gfx/pickups/bone_key.png"
+    max_child_items="0"
+    is_pickable="1"
+    is_equipable_forced="1"
+    preferred_inventory="QUICK"
+  ></ItemComponent>
+  <AbilityComponent
+    ui_name="Bone Key"
+    throw_as_item="1"
+  ><gun_config
+    deck_capacity="0"
+  ></gun_config>
+  </AbilityComponent>
+  <UIInfoComponent
+    _tags="enabled_in_world"
+    name="Bone Key">
+  </UIInfoComponent>
+  
+
+</Entity>

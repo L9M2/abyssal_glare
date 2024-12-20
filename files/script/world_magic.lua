@@ -200,7 +200,7 @@ function adjust_y_offset()
   local biome_data = ModTextFileGetContent("data/biome/_biomes_all.xml")
   local biomes_xml = nxml.parse(biome_data)
 --3/22/2024: Guess what? We can adjust the biome_map offset now.
---Though why here? Because we have to actually change this before the biome map is loaded for some reason.
+--Though why here? Because we have to actually change this before the biome map is loaded for some reason. Otherwise it doesn't take effect.
 
 local Abyssal_Glare_YOffset = 0
 if ModIsEnabled("Apotheosis") then

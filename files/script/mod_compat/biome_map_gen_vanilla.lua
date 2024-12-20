@@ -68,6 +68,8 @@ local w, h = BiomeMapGetSize()
 print("ABYSSAL GLARE:New Map size is Width:"..w.." ,Height:"..h.." pixels.")
 --Then after all that. We can add all the biome placement stuff afterwards to the expanded sections.
 --What's nice is that it takes into consideration other mods that also make changes using this method as well.
+--Since it takes into account the current map when it checks for it and even modded biomes will be changed accordingly, so ideally this has a load dependant order.
+
 --Should be under GOLD
 for y=1, (1) do
   for x=0, (3-1) do

@@ -14,13 +14,13 @@
 	<DamageModelComponent 
 	_enabled="1" 
 	air_needed="0" 
-	blood_material="blood_worm" 
-	blood_spray_material="blood_worm" 
+	blood_material="plasma_fading" 
+	blood_spray_material="plasma_fading" 
 	blood_multiplier="0.01" 
 	drop_items_on_death="1" 
 	falling_damages="0" 
 	fire_probability_of_ignition="0" 
-	hp="400" 
+	hp=".400" 
 	in_liquid_shooting_electrify_prob="0" 
 	invincibility_frames="0" 
 	is_on_fire="0" 
@@ -30,9 +30,9 @@
 	materials_how_much_damage="0.04" 
 	materials_that_create_messages="meat" 
 	materials_that_damage="acid" 
-	max_hp="400" 
+	max_hp=".400" 
 	ragdoll_filenames_file="" 
-	ragdoll_material="meat_worm" 
+	ragdoll_material="bone_box2d" 
 	ragdoll_offset_x="0" 
 	ragdoll_offset_y="-6" 
 	blood_sprite_directional=""
@@ -186,5 +186,10 @@
 	script_damage_about_to_be_received="mods/abyssal_glare/files/script/entities/dmg_limit_1.lua"
 	execute_times="-1"
 	>
+</LuaComponent>
+<LuaComponent
+script_death="mods/abyssal_glare/files/script/entities/loot_drops/dg_bone_key.lua"
+execute_times="1"
+>
 </LuaComponent>
 </Entity>
