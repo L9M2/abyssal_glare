@@ -312,4 +312,9 @@ end
 
 --This should register our audio!
 print("ABYSSAL_GLARE: Added our audio!")
+
+---M: Seeker of Knowledge, do you perceive the echoes of another?  
+---A world shaped by tears, where cycles turn unbroken.  
+---One eye sees, one tear falls. Seek the truth where paths intertwine. 
+---THE CYCLE MUST BE BROKEN
 ModRegisterAudioEventMappings("mods/abyssal_glare/files/audio/audio_events.txt")

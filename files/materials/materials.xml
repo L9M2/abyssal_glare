@@ -1636,9 +1636,36 @@ This produces a very miniscule amount of healing liquid. Which pools at the bott
 <!--Reactions 2 Electric Boogaloo-->
 
 
+<!--Careful! This can produce Monstrous Powder or a pixel of Creepy Liquid!-->
 <Reaction probability="100"
 input_cell1="abyssal_glare_magic_liquid_aleatory" 	input_cell2="abyssal_glare_magic_liquid_aleatory"
 output_cell1="[solid]" 		    output_cell2="[liquid]"
+>
+</Reaction>
+
+<!--To Prevent Earthquake Cheese-->
+<Reaction probability="100"
+input_cell1="concrete_collapsed" 	input_cell2="[abyssal_glare]"
+output_cell1="abyssal_glare_abyssal_crystal" 		    output_cell2="abyssal_glare_abyssal_crystal"
+blob_radius2="3"
+blob_restrict_to_input_material2="1"
+entity="mods/abyssal_glare/files/materials/conversion/cursed_rock_blob_trap.xml"
+>
+</Reaction>
+
+<Reaction probability="100"
+input_cell1="concrete_static" 	input_cell2="[abyssal_glare]"
+output_cell1="abyssal_glare_abyssal_crystal" 		    output_cell2="abyssal_glare_abyssal_crystal"
+blob_radius2="3"
+blob_restrict_to_input_material2="1"
+>
+</Reaction>
+
+<Reaction probability="100"
+input_cell1="concrete_sand" 	input_cell2="[abyssal_glare]"
+output_cell1="abyssal_glare_abyssal_crystal" 		    output_cell2="abyssal_glare_abyssal_crystal"
+blob_radius2="3"
+blob_restrict_to_input_material2="1"
 >
 </Reaction>
 

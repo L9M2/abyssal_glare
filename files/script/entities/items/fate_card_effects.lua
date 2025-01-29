@@ -203,7 +203,7 @@ function fate_card_effect( entity_item, entity_who_picked, name )
 			GamePlaySound("mods/abyssal_glare/files/audio/audio_abyssal_glare.bank", "fate_cards/cards/pit_boss" , x, y)
 		end
 		--Monolith
-		---They included myself knower to be.
+		---They included myself Seeker of Knowledge.
 		if this_item == "abyssal_glare_monolith_fate_card" then
 			--Perhaps spawn a random tiered wand.
 			--Gold version should spawn the unlocked spell from them.

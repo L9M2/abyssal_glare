@@ -6,7 +6,8 @@ if GameHasFlagRun("PERK_PICKED_ABYSSAL_GLARE_SILVER_DOLLAR") then
     --I mean... why not?
     --Just a silly extra secret for completing the game with this perk.
 elseif GameHasFlagRun("PERK_PICKED_ABYSSAL_GLARE_THE_SHARD") then
-	GamePrintImportant( "You've completed the work...", "...but at what cost?" )
+    print("THE CYCLE MUST BE BROKEN")
+	GamePrintImportant( "You've completed the Work...", "...but at what cost?" )
     EntityLoad( "mods/abyssal_glare/files/entities/effects/playerclone_worlddeath.xml", x, y )
 else
     print("Converting to Gold")
