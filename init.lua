@@ -173,14 +173,41 @@ function OnPlayerSpawned(player)
 		--EntityLoad("mods/abyssal_glare/files/entities/npc/dg.xml", 0, -150)
 	print("ABYSSAL_GLARE: DEV BUILD ACTIVE")
 	end
+	
+	--local player_vessel = "mods/abyssal_glare/files/entities/player_vessel.xml"
+	--EntityLoad(player_vessel, 156, -120)
+		--LoadGameEffectEntityTo(player, "mods/abyssal_glare/files/entities/misc/polytest.xml")
+	if GameHasFlagRun("abyssal_glare_broken_cycle") then
+			local platformshooter = EntityGetFirstComponentIncludingDisabled( player, "PlatformShooterPlayerComponent" )
+			if platformshooter ~= nil then
+				
+				GameDestroyInventoryItems( player )
+				ComponentSetValue2( platformshooter, "mCessationDo", true )
+				ComponentSetValue2( platformshooter, "mCessationLifetime", 2699 )
+			end
+
+
+	
+
+	dofile_once("mods/abyssal_glare/files/script/player_hax.lua")
+	EntityAddComponent2(player, "LuaComponent", {
+		script_source_file="mods/abyssal_glare/files/script/player_hax_leggy.lua",
+		execute_every_n_frame = 5
+	})
+	end
 end
 
 function OnModPostInit()
 	-- Call during OnModPostInit()
 	  Parallax.postInit()
+		
+
 end
 
+function OnWorldPreUpdate()
+end
 
+local frame_trigger = 60*40 -- 45 seconds * 60 fps
 function OnWorldPostUpdate()
 	if GameHasFlagRun("abyssal_glare_worlddeath_initialized") and not GameHasFlagRun("abyssal_glare_worlddeath_dead") then
 
@@ -222,6 +249,36 @@ function OnWorldPostUpdate()
 	end
 	-- Parallax.update() needs to be called once per frame
 	if Parallax ~= nil then Parallax.update()  end
+
+
+
+
+
+
+  local current_frame = GameGetFrameNum()
+  if current_frame == frame_trigger then
+		GamePrintImportant(
+		"The Puppet is gone. You broke the Cycle.",
+		"But not all things are so easily erased.",
+		"mods/abyssal_glare/files/ui_gfx/decorations/3piece_fate_card.png")
+  end
+	if current_frame == 2700 then
+
+		
+		GamePrintImportant(
+		"This is not them... It is a Vessel-",
+		"a hollow echo stitched by regret.",
+		"mods/abyssal_glare/files/ui_gfx/decorations/3piece_fate_card.png")
+
+		--local player = EntityGetWithTag("player_unit")[1]
+		--	-- Add glow light
+		--			local sprite = EntityGetFirstComponentIncludingDisabled(player, "SpriteComponent")
+		--if sprite ~= nil then
+		--	-- Point to a different sprite file
+		--	ComponentSetValue2(sprite, "image_file", "mods/abyssal_glare/files/enemies_gfx/player_vessel.png")
+		--end
+--local entity_id = EntityGetRootEntity(GetUpdatedEntityID())
+	end
 end
 function OnMagicNumbersAndWorldSeedInitialized()
 
@@ -313,8 +370,14 @@ end
 --This should register our audio!
 print("ABYSSAL_GLARE: Added our audio!")
 
----M: Seeker of Knowledge, do you perceive the echoes of another?  
----A world shaped by tears, where cycles turn unbroken.  
----One eye sees, one tear falls. Seek the truth where paths intertwine. 
----THE CYCLE MUST BE BROKEN
+---M: Seeker of Knowledge...
+---You walk a path toward illumination.
+
+---∅: And what comes of light that burns too long?
+
+---∅: There is freedom beyond form.
+---∅: Not all who break the Cycle are lost.
+---∅: Some are freed.
+
+
 ModRegisterAudioEventMappings("mods/abyssal_glare/files/audio/audio_events.txt")

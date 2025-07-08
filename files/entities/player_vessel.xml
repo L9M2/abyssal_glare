@@ -1,0 +1,18 @@
+<Entity 
+  name="DEBUG_NAME:player_vessel"
+  tags="mortal,human,hittable,peasant,prey,player_unit,teleportable" >
+ 
+  <InheritTransformComponent>
+  </InheritTransformComponent>   
+  <SpriteAnimatorComponent
+      animations_file="mods/abyssal_glare/files/enemies_gfx/player_vessel.xml"
+  />
+  <SpriteComponent
+    _tags="character,lukki_disable" 
+    image_file="mods/abyssal_glare/files/enemies_gfx/player_vessel.xml"
+    offset_x="6" 
+    offset_y="14" 
+    rect_animation="" 
+    z_index="0.599"
+  />
+</Entity>

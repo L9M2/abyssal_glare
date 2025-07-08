@@ -52,7 +52,7 @@ end
 
 function randommessage()
 local tabletitle = {
-'ERROR gametriggergameover()',
+'Saved!',
 'You get another chance!',
 'Death was prevented!',
 'You continue on!',
@@ -72,7 +72,7 @@ local tabletitle = {
 local tablesub = {
 'The puppet suffered another accident\nA pity...',
 'Does it get monotonous, mortal?\nA cycle of the cosmos.',
-'The Monolith finds it amusing.',
+'They find it amusing.',
 'Abyssal Glares watch in silence.',
 'A jest at the fabric of fate, I forbid it!',
 'Another rebirth in the grand theater of the abyss.',
@@ -88,7 +88,7 @@ local tablesub = {
 'As eyes of glyphs remain veiled,\neven the cosmic audience watches in curious silence.',
 'A cauldron mysteries weave tales,\nembraced by the puppet,\nscrutinized by the seekers.',
 'Abyssal eyes observe a puppets journey,\nintrigued by the seeker quest for orbs untold.',
-'In the cosmic script, orbs are keys to the puppets ultimate dance.\nThe Monolith watches in silent anticipation.',
+'In the cosmic script, orbs are keys to the puppets ultimate dance.\nThey watche in silent anticipation.',
 'In the shadow of shifting realms, echoes of your rebirth resonate.',
 'An amulet whispers, a siren call,\nbut does it beckon to a destiny unscripted\nor an illusion spun in the loom of chaos?',
 'Riches once told through the eyes of the puppet.\nYet here they are, doomed to repeat.',
@@ -102,7 +102,9 @@ local tablesub = {
 'Gods are angry at the Seekers actions upon the puppet.',
 'Void runs thick through matter,\nyet some resist it and push back.',
 'Hidden Essences in the world of benign beings.\nThere is a hidden new one in the deepest corner.',
-'A mark of death for pillars left in a wasteland,\nbut what does it mean?\nEven the creator is unsure.'}
+'A mark of death for pillars left in a wasteland,\nbut what does it mean?\nEven the creator is unsure.',
+'To transcend ones body to beyond the veil\nis to be above the Cycle,\n and embrace the Cosmic Web.',
+'To break the Cycle is to cross one out,\n as it leads to eternal damnation.'}
 local randsub= tablesub[math.random(#tablesub)]
 local randtitle= tabletitle[math.random(#tabletitle)]
 GamePrintImportant(randtitle, randsub)

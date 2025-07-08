@@ -237,6 +237,7 @@
 	tags="[corrodible],[meltable_to_lava],[alchemy],[slime],[liquid_common],[food],[chaotic_transmutation]"
   	wang_color="A16aa26b"
   	status_effects="WET"
+		lifetime="120"
   	>
   	<Graphics
   	color="A1325d6b"
@@ -1645,27 +1646,34 @@ output_cell1="[solid]" 		    output_cell2="[liquid]"
 
 <!--To Prevent Earthquake Cheese-->
 <Reaction probability="100"
-input_cell1="concrete_collapsed" 	input_cell2="[abyssal_glare]"
-output_cell1="abyssal_glare_abyssal_crystal" 		    output_cell2="abyssal_glare_abyssal_crystal"
-blob_radius2="3"
-blob_restrict_to_input_material2="1"
-entity="mods/abyssal_glare/files/materials/conversion/cursed_rock_blob_trap.xml"
+fast_reaction="1"
+input_cell1="[abyssal_glare]" 	input_cell2="[box2d]"
+output_cell1="[abyssal_glare]" 		    output_cell2="abyssal_glare_abyssal_void"
+blob_radius1="3" blob_radius2="3"
+blob_restrict_to_input_material1="1"
+entity="mods/abyssal_glare/files/materials/conversion/abyssal_crystal_blob_trap.xml"
+>
+</Reaction>
+
+
+
+<Reaction probability="100"
+fast_reaction="1"
+input_cell1="[abyssal_glare]" 	input_cell2="concrete_static"
+output_cell1="[abyssal_glare]" 		    output_cell2="abyssal_glare_abyssal_void"
+blob_radius1="3" blob_radius2="3"
+blob_restrict_to_input_material1="1"
+entity="mods/abyssal_glare/files/materials/conversion/abyssal_crystal_blob_trap.xml"
 >
 </Reaction>
 
 <Reaction probability="100"
-input_cell1="concrete_static" 	input_cell2="[abyssal_glare]"
-output_cell1="abyssal_glare_abyssal_crystal" 		    output_cell2="abyssal_glare_abyssal_crystal"
-blob_radius2="3"
-blob_restrict_to_input_material2="1"
->
-</Reaction>
-
-<Reaction probability="100"
-input_cell1="concrete_sand" 	input_cell2="[abyssal_glare]"
-output_cell1="abyssal_glare_abyssal_crystal" 		    output_cell2="abyssal_glare_abyssal_crystal"
-blob_radius2="3"
-blob_restrict_to_input_material2="1"
+fast_reaction="1"
+input_cell1="[abyssal_glare]" 	input_cell2="concrete_sand"
+output_cell1="[abyssal_glare]" 		    output_cell2="abyssal_glare_abyssal_void"
+blob_radius1="3" blob_radius2="3"
+blob_restrict_to_input_material1="1"
+entity="mods/abyssal_glare/files/materials/conversion/abyssal_crystal_blob_trap.xml"
 >
 </Reaction>
 

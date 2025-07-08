@@ -1,0 +1,69 @@
+<Entity>
+		<MagicConvertMaterialComponent
+			kill_when_finished="1"
+			from_any_material="1"
+			steps_per_frame="1"
+			to_material="abyssal_glare_abyssal_crystal"
+			clean_stains="0"
+			is_circle="1"
+			radius="16" >
+		</MagicConvertMaterialComponent>
+		<MagicConvertMaterialComponent
+			kill_when_finished="1"
+			steps_per_frame="1"
+			convert_entities="0"
+			to_material="abyssal_glare_abyssal_crystal"
+			clean_stains="0"
+			is_circle="1"
+			radius="16" >
+		</MagicConvertMaterialComponent>
+		
+
+		<MagicConvertMaterialComponent
+			kill_when_finished="1"
+			from_material="air"
+			steps_per_frame="1"
+			to_material="abyssal_glare_abyssal_crystal"
+			clean_stains="0"
+			is_circle="1"
+			radius="16" >
+		</MagicConvertMaterialComponent>
+		
+		
+		  	<ParticleEmitterComponent 
+		emitted_material_name="abyssal_glare_abyssal_crystal"
+		create_real_particles="1"
+		gravity.y="0.0"
+		lifetime_min="8"
+		lifetime_max="15"
+		count_min="1"
+		count_max="1"
+		render_on_grid="1"
+		fade_based_on_lifetime="1"
+		area_circle_radius.min="0"
+		area_circle_radius.max="0"
+		cosmetic_force_create="0"
+		airflow_force="0.0"
+		airflow_time="0.0"
+		airflow_scale="0.0"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		emit_cosmetic_particles="0"
+		image_animation_file="data/particles/image_emitters/circle_128.png"
+		image_animation_speed="4"
+		image_animation_loop="0"
+		image_animation_raytrace_from_center="0"
+		collide_with_gas_and_fire="0"
+		set_magic_creation="1"
+		is_emitting="1" >
+	</ParticleEmitterComponent>
+
+	<LifetimeComponent
+		lifetime="32" >
+	</LifetimeComponent>
+
+    <AudioComponent
+      file="data/audio/Desktop/projectiles.bank"
+      event_root="player_projectiles/circle_of">
+    </AudioComponent>
+</Entity>

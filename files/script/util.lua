@@ -20,7 +20,8 @@ function get_player()
   if player ~= nil then
   -- There's unused code for CO-OP. So we need to specify player 1 still.
   -- Should I add use cases for Player 2?
-  --- I can only imagine two Seekers with their own Puppets...
+  --- M: I can only imagine two Seekers with their own Puppets...
+  --- Ø: Just more to play with.
   
 	return player[1]
 	--if player[1] then

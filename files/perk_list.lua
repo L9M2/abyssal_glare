@@ -255,6 +255,13 @@ local a = {
 		usable_by_enemies = false,
 		one_off_effect = true,
 		func = function( entity_perk_item, entity_who_picked, item_name )
+			EntityAddComponent( entity_who_picked, "LuaComponent",
+			{
+				_tags = "perk_component",
+				script_source_file = "mods/abyssal_glare/files/script/lib/carrion_legs.lua",
+				execute_every_n_frame = "1",
+				execute_on_added="1",
+			} )
 		end
 	},
 	{

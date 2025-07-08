@@ -65,6 +65,11 @@
     _tags="enabled_in_world"
     name="$item_thunderstone">
   </UIInfoComponent>
-  
+  <LuaComponent
+        script_source_file="mods/abyssal_glare/files/script/lib/carrion_legs.lua"
+        execute_on_added="1"
+        execute_every_n_frame="1"
+        >
+    </LuaComponent>
 
 </Entity>

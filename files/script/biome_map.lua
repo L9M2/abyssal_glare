@@ -13,3 +13,6 @@ print("ABYSSAL GLARE:Biome Map loaded.")
 ---M:Again Seeker of Knowledge?
 ---You seem to be wondering about the Puppet-
 ---Why don't you see for youself Seeker?
+---
+---Ø:As the Seeker cares my friend.
+---They only want to torture the puppet.
